@@ -1,9 +1,31 @@
+import { useState } from "react";
 import { useDocContext } from "../contexts/DoctorsContext";
 
 export default function AdvanceDoctorSearchPage() {
   const { docs } = useDocContext();
 
-  docs && console.log(docs);
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleInputChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  function filterByNameOrSurname(data, input) {
+    return data.filter((el) => {
+      return (
+        el.name.toLowerCase().includes(input.toLowerCase()) ||
+        el.surname.toLowerCase().includes(input.toLowerCase())
+      );
+    });
+  }
+
+  const filteredDocs = filterByNameOrSurname(docs, searchInput);
+
+  console.log(filteredDocs);
 
   return (
     <div className="container my-5">
@@ -17,11 +39,17 @@ export default function AdvanceDoctorSearchPage() {
       <div>
         {/* filter section */}
         <div className="d-flex justify-content-center">
-          <form className="doc-search-form text-center">
+          <form className="doc-search-form text-center" onSubmit={handleSubmit}>
             <label htmlFor="searchInput" className="form-label fs-5">
               Cerca per Nome o Cognome
             </label>
-            <input type="text" id="searchInput" className="form-control" />
+            <input
+              type="text"
+              id="searchInput"
+              className="form-control"
+              value={searchInput}
+              onChange={handleInputChange}
+            />
           </form>
         </div>
 
@@ -43,6 +71,21 @@ export default function AdvanceDoctorSearchPage() {
       </div>
 
       <hr />
+
+      {/* doctors section */}
+      <div className="my-5">
+        {filteredDocs &&
+          filteredDocs.map((doc) => {
+            return (
+              <div key={doc.id} className="my-3">
+                <h3>
+                  {doc.name} {doc.surname}
+                </h3>
+                <p>{doc.medical_specialization}</p>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 }

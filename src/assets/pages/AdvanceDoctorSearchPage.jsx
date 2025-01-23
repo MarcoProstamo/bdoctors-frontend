@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDocContext } from "../contexts/DoctorsContext";
 
+import DocsCard from "../components/DocsCard";
+
 export default function AdvanceDoctorSearchPage() {
   const { docs } = useDocContext();
 
@@ -29,21 +31,21 @@ export default function AdvanceDoctorSearchPage() {
 
   return (
     <div className="container my-5">
-      {/* Title  */}
-      <div className="my-5">
-        <h1>Advanced Doctors Search Page</h1>
+      <div className="mt-5">
+        <h1 className="fw-bold">Advanced Doctors Search Page</h1>
       </div>
 
       <hr />
 
       <div>
-        {/* filter section */}
+        {/* search for name or surname form */}
         <div className="d-flex justify-content-center">
           <form className="doc-search-form text-center" onSubmit={handleSubmit}>
             <label htmlFor="searchInput" className="form-label fs-5">
               Cerca per Nome o Cognome
             </label>
             <input
+              placeholder="search..."
               type="text"
               id="searchInput"
               className="form-control"
@@ -53,10 +55,10 @@ export default function AdvanceDoctorSearchPage() {
           </form>
         </div>
 
-        {/* badge component */}
         <div className="my-4">
           <h5 className="text-center mb-3">Filtra per Specializazzione</h5>
 
+          {/* filter specialization */}
           <div className="d-flex justify-content-center flex-wrap gap-3">
             {docs &&
               docs.map((doc) => {
@@ -72,18 +74,12 @@ export default function AdvanceDoctorSearchPage() {
 
       <hr />
 
-      {/* doctors section */}
-      <div className="my-5">
+      {/* doctors list */}
+      <h3 className="text-center fw-bold my-4">Lista dei Medici</h3>
+      <div className="row row-cols-1 row-cols-md-3 g-4">
         {filteredDocs &&
           filteredDocs.map((doc) => {
-            return (
-              <div key={doc.id} className="my-3">
-                <h3>
-                  {doc.name} {doc.surname}
-                </h3>
-                <p>{doc.medical_specialization}</p>
-              </div>
-            );
+            return <DocsCard key={doc.id} data={doc} />;
           })}
       </div>
     </div>

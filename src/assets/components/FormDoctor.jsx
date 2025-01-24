@@ -8,7 +8,6 @@ export default function FormDoctor({ onSubmit }) {
     cellphone_number: "",
     address: "",
     medical_specialization: "",
-    image: "",
   };
 
   const [formData, setFormData] = useState(formInitialData);
@@ -172,21 +171,18 @@ export default function FormDoctor({ onSubmit }) {
       </div>
 
       <div className="col-md-6">
-        <label htmlFor="inputImage" className="form-label">
-          Immagine Profilo
-        </label>
-        <div className="input-group">
+        <form action="/upload" method="POST" encType="multipart/form-data">
+          <label htmlFor="inputImage" className="form-label">
+            Immagine Profilo
+          </label>
           <input
             type="file"
             className="form-control"
             id="inputImage"
             name="image"
             accept="image/png"
-            value={formData.image}
-            onChange={handleFormData}
           />
-          <div className="valid-feedback"></div>
-        </div>
+        </form>
       </div>
 
       <div className="col-12">

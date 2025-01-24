@@ -105,7 +105,7 @@ export default function AdvanceDoctorSearchPage() {
 
         <div>
           <button className="btn btn-danger fs-6" onClick={resetFilters}>
-            Reset Filters
+            Resetta filtri
           </button>
         </div>
       </div>

@@ -12,14 +12,6 @@ export default function FormDoctor({ onSubmit }) {
 
   const [formData, setFormData] = useState(formInitialData);
 
-  const handleFormSubmit = (event) => {
-    const form = event.target;
-    if (!form.checkValidity()) {
-      event.preventDefault();
-    }
-    form.classList.add("was-validated");
-  };
-
   const handleFormData = (event) => {
     const { name, value } = event.target;
 
@@ -30,6 +22,23 @@ export default function FormDoctor({ onSubmit }) {
 
     setFormData(newformData);
     console.log(newformData);
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    if (!form.checkValidity()) {
+      form.classList.add("was-validated");
+      return;
+    }
+
+    if (onSubmit) {
+      onSubmit(formData);
+    }
+
+    setFormData(formInitialData);
+    form.classList.remove("was-validated");
   };
 
   return (

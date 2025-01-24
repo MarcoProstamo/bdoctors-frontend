@@ -12,9 +12,13 @@ export default function HomePage() {
       );
   }, []);
 
-  const uniqueSpecializations = [
+  let uniqueSpecializations = [
     ...new Set(doctors.map((doctor) => doctor.medical_specialization)),
   ];
+
+  uniqueSpecializations = uniqueSpecializations.map((medical_specialization) =>
+    medical_specialization.split(" ").join("")
+  );
 
   const iconMap = {
     Cardiologia: "fas fa-heartbeat",
@@ -24,7 +28,7 @@ export default function HomePage() {
     Psichiatria: "fas fa-user-md",
     Ortopedia: "fas fa-bone",
     Oncologia: "fas fa-ribbon",
-    Chirurgia_Generale: " fa-user-doctor",
+    ChirurgiaGenerale: "fas fa-user-doctor",
     Ginecologia: "fas fa-female",
     Oftalmologia: "fas fa-eye",
   };

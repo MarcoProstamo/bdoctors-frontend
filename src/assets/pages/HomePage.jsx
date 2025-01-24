@@ -16,6 +16,19 @@ export default function HomePage() {
     ...new Set(doctors.map((doctor) => doctor.medical_specialization)),
   ];
 
+  const iconMap = {
+    Cardiologia: "fas fa-heartbeat",
+    Dermatologia: "fas fa-sun",
+    Pediatria: "fas fa-baby",
+    Neurologia: "fas fa-brain",
+    Psichiatria: "fas fa-user-md",
+    Ortopedia: "fas fa-bone",
+    Oncologia: "fas fa-ribbon",
+    Chirurgia_Generale: " fa-user-doctor",
+    Ginecologia: "fas fa-female",
+    Oftalmologia: "fas fa-eye",
+  };
+
   return (
     <>
       <h2 className="text-center pt-5">
@@ -28,9 +41,10 @@ export default function HomePage() {
           {uniqueSpecializations.map((medical_specialization, index) => (
             <div
               key={index}
-              className="text-center py-5 px-3 col-md-3 col-sm-6 col-6"
+              className="text-center py-5 px-3 col-md-3 col-sm-6 col-6 border "
             >
-              <h5>
+              <i className={`${iconMap[medical_specialization]} fa-2xl`}></i>
+              <h5 className="py-3 px-3">
                 <strong>{medical_specialization}</strong>
               </h5>
             </div>

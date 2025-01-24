@@ -1,10 +1,9 @@
 import FormDoctor from "../components/FormDoctor";
-import { useEffect, useState } from "react";
 
 export default function AddDoctorPage() {
   const handleDoctorRegistration = (data) => {
     data.cellphone_number = "+39" + data.cellphone_number;
-    console.log("Nuovo dottore registrato:", data);
+    // console.log("Nuovo dottore registrato:", data);
 
     const newDoctorData = {
       name: data.name,
@@ -24,9 +23,11 @@ export default function AddDoctorPage() {
     })
       .then((res) => {
         if (!res.ok) {
-          throw new Error(`Errore nella fetch`);
+          throw new Error(`Errore nella fetch`, error);
         }
-        return res.json();
+        return res
+          .status(200)
+          .json({ message: "Registrazione avvenuta con successo!" });
       })
       .catch((error) => {
         console.error("Si è verificato un errore durante la fetch:", error);

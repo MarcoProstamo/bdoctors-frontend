@@ -1,6 +1,25 @@
 import { useState } from "react";
 
-export default function FormDoctor() {
+export default function FormDoctor({ onSubmit }) {
+  const [formData, setFormData] = useState({
+    name: "",
+    surname: "",
+    email: "",
+    telephone: "",
+    address: "",
+    specialization: "",
+  });
+
+  const handleFormData = (event) => {
+    const newformData = {
+      ...formData,
+      [event.target.name]: value,
+    };
+
+    setFormData(newformData);
+    console.log(newformData);
+  };
+
   const handleFormSubmit = (event) => {
     const form = event.target;
     if (!form.checkValidity()) {
@@ -25,6 +44,8 @@ export default function FormDoctor() {
           id="inputName"
           minLength={3}
           required
+          value={formData.name}
+          onChange={handleFormData}
         />
         <div className="valid-feedback"></div>
         <div className="invalid-feedback">Campo obbligatorio</div>
@@ -40,6 +61,8 @@ export default function FormDoctor() {
           id="inputSurname"
           minLength={3}
           required
+          value={formData.surname}
+          onChange={handleFormData}
         />
         <div className="valid-feedback"></div>
         <div className="invalid-feedback">Campo obbligatorio</div>
@@ -55,6 +78,8 @@ export default function FormDoctor() {
           id="inputEmail"
           minLength={5}
           required
+          value={formData.email}
+          onChange={handleFormData}
         />
         <div className="valid-feedback"></div>
         <div className="invalid-feedback">Campo obbligatorio</div>
@@ -72,6 +97,8 @@ export default function FormDoctor() {
             id="inputTelephone"
             maxLength={10}
             required
+            value={formData.telephone}
+            onChange={handleFormData}
           />
           <div className="valid-feedback"></div>
           <div className="invalid-feedback">Campo obbligatorio</div>
@@ -88,6 +115,8 @@ export default function FormDoctor() {
           id="inputAddress"
           placeholder="Indirizzo, Città, Stato"
           required
+          value={formData.address}
+          onChange={handleFormData}
         />
         <div className="valid-feedback"></div>
         <div className="invalid-feedback">Campo obbligatorio</div>
@@ -97,7 +126,13 @@ export default function FormDoctor() {
         <label htmlFor="inputSpecialization" className="form-label">
           Specializzazione
         </label>
-        <select id="inputSpecialization" className="form-select " required>
+        <select
+          id="inputSpecialization"
+          className="form-select "
+          required
+          value={formData.specialization}
+          onChange={handleFormData}
+        >
           <option selected disabled value="">
             Scegli...
           </option>

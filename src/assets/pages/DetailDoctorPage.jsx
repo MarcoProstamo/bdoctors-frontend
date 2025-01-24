@@ -35,41 +35,55 @@ export default function DetailDoctorPage() {
   const handleReviewSubmit = (e) => {
     e.preventDefault();
 
-    if (newText && newName && newVote) {
-      const reviewData = {
-        name: newName,
-        text: newText,
-        vote: newVote,
-        doctor_id: doctorId,
-      };
-
-      fetch(import.meta.env.VITE_API_INDEX + "/reviews", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(reviewData),
-      })
-        .then((res) => res.json())
-        .then(() => {
-          fetch(import.meta.env.VITE_API_INDEX + "/" + doctorId)
-            .then((res) => res.json())
-            .then((data) => {
-              setReviews(data.reviews || []);
-              setNewText("");
-              setNewName("");
-              setNewVote(0);
-            })
-            .catch((error) => {
-              setError(error);
-            });
-        })
-        .catch((error) => {
-          setError(error);
-        });
-    } else {
-      alert("Please provide a review and rating.");
+    if (!newName.trim()) {
+      alert("Per favore, inserisci il tuo nome.");
+      return;
     }
+    if (!newText.trim()) {
+      alert("Per favore, scrivi una recensione.");
+      return;
+    }
+    if (newVote <= 0 || newVote > 5) {
+      alert("Per favore, inserisci un voto tra 1 e 5.");
+      return;
+    }
+
+    const reviewData = {
+      name: newName.trim(),
+      text: newText.trim(),
+      vote: newVote,
+      doctor_id: doctorId,
+    };
+
+    fetch(import.meta.env.VITE_API_INDEX + "/reviews", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(reviewData),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Errore nell'invio della recensione.");
+        }
+        return res.json();
+      })
+      .then(() => {
+        fetch(import.meta.env.VITE_API_INDEX + "/" + doctorId)
+          .then((res) => res.json())
+          .then((data) => {
+            setReviews(data.reviews || []);
+            setNewText("");
+            setNewName("");
+            setNewVote(0);
+          })
+          .catch((error) => {
+            setError(error);
+          });
+      })
+      .catch((error) => {
+        setError(error);
+      });
   };
 
   // ! Render stars function

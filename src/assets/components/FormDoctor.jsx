@@ -5,9 +5,9 @@ export default function FormDoctor({ onSubmit }) {
     name: "",
     surname: "",
     email: "",
-    telephone: "",
+    cellphone_number: "",
     address: "",
-    specialization: "",
+    medical_specialization: "",
   };
 
   const [formData, setFormData] = useState(formInitialData);
@@ -21,7 +21,6 @@ export default function FormDoctor({ onSubmit }) {
     };
 
     setFormData(newformData);
-    console.log(newformData);
   };
 
   const handleFormSubmit = (event) => {
@@ -108,13 +107,13 @@ export default function FormDoctor({ onSubmit }) {
         <div className="input-group">
           <span className="input-group-text">+39</span>
           <input
-            type="telephone"
+            type="tel"
             className="form-control"
             id="inputTelephone"
-            maxLength={12}
+            maxLength={10}
             required
-            name="telephone"
-            value={formData.telephone}
+            name="cellphone_number"
+            value={formData.cellphone_number}
             onChange={handleFormData}
           />
           <div className="valid-feedback"></div>
@@ -132,6 +131,7 @@ export default function FormDoctor({ onSubmit }) {
           id="inputAddress"
           placeholder="Esempio: Via Manzoni 23, Firenze, Italia"
           required
+          minLength={5}
           name="address"
           value={formData.address}
           onChange={handleFormData}
@@ -148,8 +148,8 @@ export default function FormDoctor({ onSubmit }) {
           id="inputSpecialization"
           className="form-select "
           required
-          name="specialization"
-          value={formData.specialization}
+          name="medical_specialization"
+          value={formData.medical_specialization}
           onChange={handleFormData}
         >
           <option defaultValue disabled value="">

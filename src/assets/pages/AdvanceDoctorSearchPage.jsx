@@ -48,8 +48,6 @@ export default function AdvanceDoctorSearchPage() {
     filter.specialization
   );
 
-  console.log(filteredDocs);
-
   return (
     <div className="container my-5">
       <div className="mt-5">

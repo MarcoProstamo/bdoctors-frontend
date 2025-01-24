@@ -67,7 +67,11 @@ export default function DocsCard({ data }) {
     <div className="col">
       <Link className="text-decoration-none" to={`/doctors/${data.id}`}>
         <div className="card">
-          <img src="..." className="card-img-top" alt="..." />
+          <img
+            src={import.meta.env.VITE_API_IMG + data.image + ".png"}
+            className="card-img-top"
+            alt="..."
+          />
           <div className="card-body">
             <h5 className="card-title">
               {data.name} {data.surname}

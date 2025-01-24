@@ -51,7 +51,7 @@ export default function FormDoctor({ onSubmit }) {
           Nome
         </label>
         <input
-          type="password"
+          type="text"
           className="form-control"
           id="inputName"
           minLength={3}

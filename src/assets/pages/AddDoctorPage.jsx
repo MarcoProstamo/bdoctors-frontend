@@ -3,6 +3,8 @@ import FormDoctor from "../components/FormDoctor";
 export default function AddDoctorPage() {
   const handleDoctorRegistration = (data) => {
     data.cellphone_number = "+39" + data.cellphone_number;
+    data.image = data.image.slice(12);
+    data.image = data.image.slice(0, -4);
 
     const newDoctorData = {
       name: data.name,

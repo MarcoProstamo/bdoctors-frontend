@@ -37,9 +37,11 @@ export default function AddDoctorPage() {
   return (
     <>
       <div className="container">
-        <h1>Crea un nuovo profilo come Dottore: </h1>
-        <div className="my-5"></div>
-        <FormDoctor onSubmit={handleDoctorRegistration} />
+        <section className="mt-5">
+          <h1>Crea un nuovo profilo come Dottore: </h1>
+          <div className="my-5"></div>
+          <FormDoctor onSubmit={handleDoctorRegistration} />
+        </section>
       </div>
     </>
   );

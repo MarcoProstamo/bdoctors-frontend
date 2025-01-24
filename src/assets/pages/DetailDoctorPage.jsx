@@ -118,8 +118,8 @@ export default function DetailDoctorPage() {
           <h2 className="text-center mb-4 fs-1">Recensioni</h2>
           <div className="list-group">
             {reviews &&
-              reviews.map((review) => (
-                <div key={review.id} className="list-group-item">
+              reviews.map((review, index) => (
+                <div key={index} className="list-group-item">
                   <p>
                     <strong>{review.name}</strong>
                   </p>
@@ -155,7 +155,7 @@ export default function DetailDoctorPage() {
               />
             </div>
             <div className="d-flex justify-content-center">
-              <button className="btn btn-primary" type="submit">
+              <button className="btn btn-primary me-2" type="submit">
                 Invia
               </button>
               <input type="text" />

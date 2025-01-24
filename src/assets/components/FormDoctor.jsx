@@ -124,13 +124,13 @@ export default function FormDoctor({ onSubmit }) {
 
       <div className="col-12">
         <label htmlFor="inputAddress" className="form-label">
-          Indirizzo
+          Indirizzo / Città / Stato
         </label>
         <input
           type="text"
           className="form-control"
           id="inputAddress"
-          placeholder="Indirizzo, Città, Stato"
+          placeholder="Esempio: Via Manzoni 23, Firenze, Italia"
           required
           name="address"
           value={formData.address}

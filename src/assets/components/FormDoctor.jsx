@@ -8,6 +8,7 @@ export default function FormDoctor({ onSubmit }) {
     cellphone_number: "",
     address: "",
     medical_specialization: "",
+    image: "",
   };
 
   const [formData, setFormData] = useState(formInitialData);
@@ -51,7 +52,7 @@ export default function FormDoctor({ onSubmit }) {
           Nome
         </label>
         <input
-          type="password"
+          type="text"
           className="form-control"
           id="inputName"
           minLength={3}
@@ -168,6 +169,24 @@ export default function FormDoctor({ onSubmit }) {
         </select>
         <div className="valid-feedback"></div>
         <div className="invalid-feedback">Campo obbligatorio</div>
+      </div>
+
+      <div className="col-md-6">
+        <label htmlFor="inputImage" className="form-label">
+          Immagine Profilo
+        </label>
+        <div className="input-group">
+          <input
+            type="file"
+            className="form-control"
+            id="inputImage"
+            name="image"
+            accept="image/png"
+            value={formData.image}
+            onChange={handleFormData}
+          />
+          <div className="valid-feedback"></div>
+        </div>
       </div>
 
       <div className="col-12">

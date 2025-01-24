@@ -109,7 +109,7 @@ export default function AdvanceDoctorSearchPage() {
           </button>
         </div>
       </div>
-      <div className="row row-cols-1 row-cols-md-3 g-4">
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
         {filteredDocs &&
           filteredDocs.map((doc) => {
             return <DocsCard key={doc.id} data={doc} />;

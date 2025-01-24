@@ -8,6 +8,7 @@ export default function DetailDoctorPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [newText, setNewText] = useState("");
+  const [newName, setNewName] = useState("");
   const [newVote, setNewVote] = useState(0);
 
   useEffect(() => {
@@ -34,10 +35,12 @@ export default function DetailDoctorPage() {
   const handleReviewSubmit = (e) => {
     e.preventDefault();
 
-    if (newText && newVote) {
+    if (newText && newName && newVote) {
       const reviewData = {
+        name: newName,
         text: newText,
         vote: newVote,
+        doctor_id: doctorId,
       };
 
       fetch(import.meta.env.VITE_API_INDEX + "/reviews", {
@@ -48,10 +51,18 @@ export default function DetailDoctorPage() {
         body: JSON.stringify(reviewData),
       })
         .then((res) => res.json())
-        .then((data) => {
-          setReviews((prevReviews) => [...prevReviews, data]);
-          setNewText("");
-          setNewVote(0);
+        .then(() => {
+          fetch(import.meta.env.VITE_API_INDEX + "/" + doctorId)
+            .then((res) => res.json())
+            .then((data) => {
+              setReviews(data.reviews || []);
+              setNewText("");
+              setNewName("");
+              setNewVote(0);
+            })
+            .catch((error) => {
+              setError(error);
+            });
         })
         .catch((error) => {
           setError(error);
@@ -174,7 +185,13 @@ export default function DetailDoctorPage() {
               <button className="btn btn-primary me-2" type="submit">
                 Invia
               </button>
-              <input type="text" />
+              <input
+                type="text"
+                className="form-control"
+                value={newName}
+                onChange={(e) => setNewName(e.target.value)}
+                placeholder="Il tuo nome"
+              />
             </div>
           </form>
         </div>

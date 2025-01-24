@@ -132,6 +132,7 @@ export default function FormDoctor({ onSubmit }) {
           id="inputAddress"
           placeholder="Esempio: Via Manzoni 23, Firenze, Italia"
           required
+          minLength={5}
           name="address"
           value={formData.address}
           onChange={handleFormData}

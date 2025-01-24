@@ -75,16 +75,26 @@ export default function DetailDoctorPage() {
     return <div className="text-center">No doctor data available</div>;
   }
 
+  const doctorImagePath =
+    "http://localhost:3000" + "/doctor_images/imageDoc_" + doctorId + ".png";
+
   return (
     <div className="container pt-5">
       <h1 className="text-center mb-4 fs-1">Dettaglio dottore</h1>
       <div className="row mb-4">
         <div className="col-md-6 offset-md-3">
           <div className="card p-4">
-            <h3 className="card-title">
-              {doctor.name} {doctor.surname}
-            </h3>
-            <p>
+            <div className="d-flex align-items-center">
+              <img
+                src={doctorImagePath}
+                className="img-thumbnail me-3"
+                style={{ width: "150px", height: "150px", objectFit: "cover" }}
+              />
+              <h3 className="card-title mb-0">
+                {doctor.name} {doctor.surname}
+              </h3>
+            </div>
+            <p className="mt-3">
               <strong>Email:</strong> {doctor.email}
             </p>
             <p>

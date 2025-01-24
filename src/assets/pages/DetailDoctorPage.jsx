@@ -61,6 +61,22 @@ export default function DetailDoctorPage() {
     }
   };
 
+  // ! Render stars function
+
+  function renderStars(vote) {
+    const maxStars = 5;
+    const fullStar = "★";
+    const emptyStar = "☆";
+
+    return (
+      <span className="star-rating">
+        {Array.from({ length: maxStars }, (_, i) =>
+          i < vote ? fullStar : emptyStar
+        ).join(" ")}
+      </span>
+    );
+  }
+
   if (loading) {
     return <div className="text-center">Caricamento...</div>;
   }
@@ -125,7 +141,7 @@ export default function DetailDoctorPage() {
                   </p>
                   <p>{review.text}</p>
                   <p>
-                    <strong>Voto:</strong> {review.vote}
+                    <strong>Voto:</strong> {renderStars(review.vote)}
                   </p>
                 </div>
               ))}

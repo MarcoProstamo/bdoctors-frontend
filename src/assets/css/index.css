@@ -1,3 +1,7 @@
 .doc-search-form {
   flex-basis: 70%;
 }
+.star-rating {
+  color: gold;
+  font-size: 1rem;
+}

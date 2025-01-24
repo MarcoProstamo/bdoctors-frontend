@@ -8,6 +8,7 @@ export default function DetailDoctorPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [newText, setNewText] = useState("");
+  const [newName, setNewName] = useState("");
   const [newVote, setNewVote] = useState(0);
 
   useEffect(() => {
@@ -34,10 +35,12 @@ export default function DetailDoctorPage() {
   const handleReviewSubmit = (e) => {
     e.preventDefault();
 
-    if (newText && newVote) {
+    if (newText && newName && newVote) {
       const reviewData = {
+        name: newName,
         text: newText,
         vote: newVote,
+        doctor_id: doctorId,
       };
 
       fetch(import.meta.env.VITE_API_INDEX + "/reviews", {
@@ -48,10 +51,18 @@ export default function DetailDoctorPage() {
         body: JSON.stringify(reviewData),
       })
         .then((res) => res.json())
-        .then((data) => {
-          setReviews((prevReviews) => [...prevReviews, data]);
-          setNewText("");
-          setNewVote(0);
+        .then(() => {
+          fetch(import.meta.env.VITE_API_INDEX + "/" + doctorId)
+            .then((res) => res.json())
+            .then((data) => {
+              setReviews(data.reviews || []);
+              setNewText("");
+              setNewName("");
+              setNewVote(0);
+            })
+            .catch((error) => {
+              setError(error);
+            });
         })
         .catch((error) => {
           setError(error);
@@ -60,6 +71,22 @@ export default function DetailDoctorPage() {
       alert("Please provide a review and rating.");
     }
   };
+
+  // ! Render stars function
+
+  function renderStars(vote) {
+    const maxStars = 5;
+    const fullStar = "★";
+    const emptyStar = "☆";
+
+    return (
+      <span className="star-rating">
+        {Array.from({ length: maxStars }, (_, i) =>
+          i < vote ? fullStar : emptyStar
+        ).join(" ")}
+      </span>
+    );
+  }
 
   if (loading) {
     return <div className="text-center">Caricamento...</div>;
@@ -75,16 +102,26 @@ export default function DetailDoctorPage() {
     return <div className="text-center">No doctor data available</div>;
   }
 
+  const doctorImagePath =
+    "http://localhost:3000" + "/doctor_images/imageDoc_" + doctorId + ".png";
+
   return (
     <div className="container pt-5">
       <h1 className="text-center mb-4 fs-1">Dettaglio dottore</h1>
       <div className="row mb-4">
         <div className="col-md-6 offset-md-3">
           <div className="card p-4">
-            <h3 className="card-title">
-              {doctor.name} {doctor.surname}
-            </h3>
-            <p>
+            <div className="d-flex align-items-center">
+              <img
+                src={doctorImagePath}
+                className="img-thumbnail me-3"
+                style={{ width: "150px", height: "150px", objectFit: "cover" }}
+              />
+              <h3 className="card-title mb-0">
+                {doctor.name} {doctor.surname}
+              </h3>
+            </div>
+            <p className="mt-3">
               <strong>Email:</strong> {doctor.email}
             </p>
             <p>
@@ -108,14 +145,14 @@ export default function DetailDoctorPage() {
           <h2 className="text-center mb-4 fs-1">Recensioni</h2>
           <div className="list-group">
             {reviews &&
-              reviews.map((review) => (
-                <div key={review.id} className="list-group-item">
+              reviews.map((review, index) => (
+                <div key={index} className="list-group-item">
                   <p>
                     <strong>{review.name}</strong>
                   </p>
                   <p>{review.text}</p>
                   <p>
-                    <strong>Voto:</strong> {review.vote}
+                    <strong>Voto:</strong> {renderStars(review.vote)}
                   </p>
                 </div>
               ))}
@@ -145,10 +182,16 @@ export default function DetailDoctorPage() {
               />
             </div>
             <div className="d-flex justify-content-center">
-              <button className="btn btn-primary" type="submit">
+              <button className="btn btn-primary me-2" type="submit">
                 Invia
               </button>
-              <input type="text" />
+              <input
+                type="text"
+                className="form-control"
+                value={newName}
+                onChange={(e) => setNewName(e.target.value)}
+                placeholder="Il tuo nome"
+              />
             </div>
           </form>
         </div>

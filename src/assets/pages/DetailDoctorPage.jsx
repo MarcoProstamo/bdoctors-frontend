@@ -148,6 +148,7 @@ export default function DetailDoctorPage() {
               <button className="btn btn-primary" type="submit">
                 Invia
               </button>
+              <input type="text" />
             </div>
           </form>
         </div>

@@ -1,6 +1,10 @@
 import FormDoctor from "../components/FormDoctor";
 
 export default function AddDoctorPage() {
+  const handleDoctorRegistration = (data) => {
+    console.log("Nuovo dottore registrato:", data);
+  };
+
   return (
     <>
       <div className="container">

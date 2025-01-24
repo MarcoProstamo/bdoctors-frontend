@@ -1,24 +1,16 @@
 import { useState } from "react";
 
 export default function FormDoctor({ onSubmit }) {
-  const [formData, setFormData] = useState({
+  const formInitialData = {
     name: "",
     surname: "",
     email: "",
     telephone: "",
     address: "",
     specialization: "",
-  });
-
-  const handleFormData = (event) => {
-    const newformData = {
-      ...formData,
-      [event.target.name]: value,
-    };
-
-    setFormData(newformData);
-    console.log(newformData);
   };
+
+  const [formData, setFormData] = useState(formInitialData);
 
   const handleFormSubmit = (event) => {
     const form = event.target;
@@ -26,6 +18,18 @@ export default function FormDoctor({ onSubmit }) {
       event.preventDefault();
     }
     form.classList.add("was-validated");
+  };
+
+  const handleFormData = (event) => {
+    const { name, value } = event.target;
+
+    const newformData = {
+      ...formData,
+      [name]: value,
+    };
+
+    setFormData(newformData);
+    console.log(newformData);
   };
 
   return (
@@ -44,6 +48,7 @@ export default function FormDoctor({ onSubmit }) {
           id="inputName"
           minLength={3}
           required
+          name="name"
           value={formData.name}
           onChange={handleFormData}
         />
@@ -61,6 +66,7 @@ export default function FormDoctor({ onSubmit }) {
           id="inputSurname"
           minLength={3}
           required
+          name="surname"
           value={formData.surname}
           onChange={handleFormData}
         />
@@ -78,6 +84,7 @@ export default function FormDoctor({ onSubmit }) {
           id="inputEmail"
           minLength={5}
           required
+          name="email"
           value={formData.email}
           onChange={handleFormData}
         />
@@ -95,8 +102,9 @@ export default function FormDoctor({ onSubmit }) {
             type="telephone"
             className="form-control"
             id="inputTelephone"
-            maxLength={10}
+            maxLength={12}
             required
+            name="telephone"
             value={formData.telephone}
             onChange={handleFormData}
           />
@@ -115,6 +123,7 @@ export default function FormDoctor({ onSubmit }) {
           id="inputAddress"
           placeholder="Indirizzo, Città, Stato"
           required
+          name="address"
           value={formData.address}
           onChange={handleFormData}
         />
@@ -130,22 +139,23 @@ export default function FormDoctor({ onSubmit }) {
           id="inputSpecialization"
           className="form-select "
           required
+          name="specialization"
           value={formData.specialization}
           onChange={handleFormData}
         >
-          <option selected disabled value="">
+          <option defaultValue disabled value="">
             Scegli...
           </option>
-          <option value="1">Cardiologia</option>
-          <option value="2">Dermatologia</option>
-          <option value="3">Pediatria</option>
-          <option value="4">Neurologia</option>
-          <option value="5">Psichiatria</option>
-          <option value="6">Ortopedia</option>
-          <option value="7">Oncologia</option>
-          <option value="8">Chirurgia Generale</option>
-          <option value="9">Ginecologia</option>
-          <option value="10">Oftalmologia</option>
+          <option value="Cardiologia">Cardiologia</option>
+          <option value="Dermatologia">Dermatologia</option>
+          <option value="Pediatria">Pediatria</option>
+          <option value="Neurologia">Neurologia</option>
+          <option value="Psichiatria">Psichiatria</option>
+          <option value="Ortopedia">Ortopedia</option>
+          <option value="Oncologia">Oncologia</option>
+          <option value="Chirurgia Generale">Chirurgia Generale</option>
+          <option value="Ginecologia">Ginecologia</option>
+          <option value="Oftalmologia">Oftalmologia</option>
         </select>
         <div className="valid-feedback"></div>
         <div className="invalid-feedback">Campo obbligatorio</div>

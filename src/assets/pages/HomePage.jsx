@@ -33,6 +33,8 @@ export default function HomePage() {
     Oftalmologia: "fas fa-eye",
   };
 
+  const [hoveredCard, setHoveredCard] = useState(null);
+
   return (
     <>
       <h2 className="text-center pt-5">
@@ -41,18 +43,36 @@ export default function HomePage() {
         </b>
       </h2>
       <div className="container">
-        <div className="pt-5 px-3 row">
-          {uniqueSpecializations.map((medical_specialization, index) => (
-            <div
-              key={index}
-              className="text-center py-5 px-3 col-md-3 col-sm-6 col-6 border "
-            >
-              <i className={`${iconMap[medical_specialization]} fa-2xl`}></i>
-              <h5 className="py-3 px-3">
-                <strong>{medical_specialization}</strong>
-              </h5>
-            </div>
-          ))}
+        <div className="pt-5 px-3 row ">
+          {uniqueSpecializations.map((medical_specialization, index) => {
+            const isHovered = hoveredCard === index;
+
+            const dynamicStyle = {
+              backgroundColor: isHovered ? "rgba(0, 0, 0, 0.1)" : "transparent",
+              transform: isHovered ? "scale(1.05)" : "scale(1)",
+              transition: "transform 0.3s ease, background-color 0.3s ease",
+              cursor: "pointer",
+            };
+
+            return (
+              <div
+                key={index}
+                className="text-center py-5 px-3 col-md-3 col-sm-6 col-6 border"
+                style={dynamicStyle}
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <i
+                  className={`${
+                    iconMap[medical_specialization] || "fas fa-question"
+                  } fa-2xl`}
+                ></i>
+                <h5 className="py-3 px-3">
+                  <strong>{medical_specialization}</strong>
+                </h5>
+              </div>
+            );
+          })}
         </div>
       </div>
 

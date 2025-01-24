@@ -12,7 +12,6 @@ export const DoctorContextProvider = ({ children }) => {
       .then((res) => res.json())
       .then((data) => {
         setDocsData({ ...docsData, docs: data });
-        console.log(data);
       })
       .catch((err) => {
         console.error(err);

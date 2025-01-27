@@ -4,7 +4,7 @@ import { useDocContext } from "../contexts/DoctorsContext";
 import DocsCard from "../components/DocsCard";
 
 export default function AdvanceDoctorSearchPage() {
-  const { docs } = useDocContext();
+  const { docs, icons } = useDocContext();
 
   const [filter, setFilter] = useState({
     searchInput: "",
@@ -78,15 +78,15 @@ export default function AdvanceDoctorSearchPage() {
 
           {/* filter specialization */}
           <div className="d-flex justify-content-center flex-wrap gap-3">
-            {docs &&
-              docs.map((doc) => {
+            {icons &&
+              icons.map((icon) => {
                 return (
                   <button
                     className="btn btn-primary fs-6"
-                    key={doc.id}
+                    key={icon.id}
                     onClick={onClickSpecializationFilter}
                   >
-                    {doc.specialization}
+                    {icon.specialization}
                   </button>
                 );
               })}
@@ -115,7 +115,7 @@ export default function AdvanceDoctorSearchPage() {
             return <DocsCard key={doc.id} data={doc} />;
           })}
         {filteredDocs && filteredDocs.length === 0 && (
-          <div className="col-12 text-center">No doctors found.</div>
+          <div className="col-12 text-center fs-3">Nessun Dottore Trovato.</div>
         )}
       </div>
     </div>

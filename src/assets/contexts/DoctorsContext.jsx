@@ -6,9 +6,10 @@ export const useDocContext = () => useContext(DocContext);
 
 // # Provider
 export const DoctorContextProvider = ({ children }) => {
-  const INDEX = import.meta.env.VITE_API_INDEX;
+  const INDEX_DOCTORS = import.meta.env.VITE_API_INDEX;
+  const INDEX_ICONS = import.meta.env.VITE_API_INDEX_SPECIALIZATIONS;
   function fetchDocs() {
-    fetch(INDEX)
+    fetch(INDEX_DOCTORS)
       .then((res) => res.json())
       .then((data) => {
         setDocsData({ ...docsData, docs: data });
@@ -18,12 +19,25 @@ export const DoctorContextProvider = ({ children }) => {
       });
   }
 
+  function fetchIcons() {
+    fetch(INDEX_ICONS)
+      .then((res) => res.json())
+      .then((data) => {
+        setDocsData({ ...docsData, icons: data });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
   const [docsData, setDocsData] = useState({
     docs: [],
+    icon: [],
   });
 
   useEffect(() => {
     fetchDocs();
+    fetchIcons();
   }, []);
 
   return <DocContext.Provider value={docsData}>{children}</DocContext.Provider>;

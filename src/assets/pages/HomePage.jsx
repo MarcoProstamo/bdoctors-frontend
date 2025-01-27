@@ -1,20 +1,8 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState, useEffect, useContext } from "react";
+import { useDocContext } from "../contexts/DoctorsContext";
 export default function HomePage() {
-  const [specializations, setSpecializations] = useState([]);
+  const { icons } = useDocContext();
   const [hoveredCard, setHoveredCard] = useState(null);
-
-  const API_INDEX_SPECIALIZATIONS = import.meta.env
-    .VITE_API_INDEX_SPECIALIZATIONS;
-
-  useEffect(() => {
-    fetch(API_INDEX_SPECIALIZATIONS)
-      .then((response) => response.json())
-      .then((data) => setSpecializations(data))
-      .catch((error) =>
-        console.error("Errore nel recuperare delle specializzazioni:", error)
-      );
-  }, []);
 
   return (
     <>
@@ -25,8 +13,8 @@ export default function HomePage() {
       </h2>
       <div className="container">
         <div className="pt-5 px-3 row ">
-          {specializations &&
-            specializations.map((specialization, index) => {
+          {icons &&
+            icons.map((specialization, index) => {
               const isHovered = hoveredCard === index;
 
               const dynamicStyle = {

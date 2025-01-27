@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useDocContext } from "../contexts/DoctorsContext";
 
 export default function FormDoctor({ onSubmit }) {
   const formInitialData = {
@@ -11,6 +12,7 @@ export default function FormDoctor({ onSubmit }) {
   };
 
   const [formData, setFormData] = useState(formInitialData);
+  const { icons } = useDocContext();
 
   const handleFormData = (event) => {
     const { name, value } = event.target;
@@ -155,16 +157,12 @@ export default function FormDoctor({ onSubmit }) {
           <option defaultValue disabled value="">
             Scegli...
           </option>
-          <option value="Cardiologia">Cardiologia</option>
-          <option value="Dermatologia">Dermatologia</option>
-          <option value="Pediatria">Pediatria</option>
-          <option value="Neurologia">Neurologia</option>
-          <option value="Psichiatria">Psichiatria</option>
-          <option value="Ortopedia">Ortopedia</option>
-          <option value="Oncologia">Oncologia</option>
-          <option value="Chirurgia Generale">Chirurgia Generale</option>
-          <option value="Ginecologia">Ginecologia</option>
-          <option value="Oftalmologia">Oftalmologia</option>
+          {icons &&
+            icons.map(({ id, specialization }) => (
+              <option key={id} value={specialization}>
+                {specialization}
+              </option>
+            ))}
         </select>
         <div className="valid-feedback"></div>
         <div className="invalid-feedback">Campo obbligatorio</div>

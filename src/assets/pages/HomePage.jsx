@@ -1,39 +1,20 @@
 import React, { useState, useEffect } from "react";
 
 export default function HomePage() {
-  const [doctors, setDoctors] = useState([]);
+  const [specializations, setSpecializations] = useState([]);
+  const [hoveredCard, setHoveredCard] = useState(null);
+
+  const API_INDEX_SPECIALIZATIONS = import.meta.env
+    .VITE_API_INDEX_SPECIALIZATIONS;
 
   useEffect(() => {
-    fetch("http://localhost:3000/doctors")
+    fetch(API_INDEX_SPECIALIZATIONS)
       .then((response) => response.json())
-      .then((data) => setDoctors(data))
+      .then((data) => setSpecializations(data))
       .catch((error) =>
         console.error("Errore nel recuperare delle specializzazioni:", error)
       );
   }, []);
-
-  let uniqueSpecializations = [
-    ...new Set(doctors.map((doctor) => doctor.medical_specialization)),
-  ];
-
-  uniqueSpecializations = uniqueSpecializations.map((medical_specialization) =>
-    medical_specialization.split(" ").join("")
-  );
-
-  const iconMap = {
-    Cardiologia: "fas fa-heartbeat",
-    Dermatologia: "fas fa-sun",
-    Pediatria: "fas fa-baby",
-    Neurologia: "fas fa-brain",
-    Psichiatria: "fas fa-user-md",
-    Ortopedia: "fas fa-bone",
-    Oncologia: "fas fa-ribbon",
-    ChirurgiaGenerale: "fas fa-user-doctor",
-    Ginecologia: "fas fa-female",
-    Oftalmologia: "fas fa-eye",
-  };
-
-  const [hoveredCard, setHoveredCard] = useState(null);
 
   return (
     <>
@@ -44,35 +25,36 @@ export default function HomePage() {
       </h2>
       <div className="container">
         <div className="pt-5 px-3 row ">
-          {uniqueSpecializations.map((medical_specialization, index) => {
-            const isHovered = hoveredCard === index;
+          {specializations &&
+            specializations.map((specialization, index) => {
+              const isHovered = hoveredCard === index;
 
-            const dynamicStyle = {
-              backgroundColor: isHovered ? "rgba(0, 0, 0, 0.1)" : "transparent",
-              transform: isHovered ? "scale(1.05)" : "scale(1)",
-              transition: "transform 0.3s ease, background-color 0.3s ease",
-              cursor: "pointer",
-            };
+              const dynamicStyle = {
+                backgroundColor: isHovered
+                  ? "rgba(0, 0, 0, 0.1)"
+                  : "transparent",
+                transform: isHovered ? "scale(1.05)" : "scale(1)",
+                transition: "transform 0.3s ease, background-color 0.3s ease",
+                cursor: "pointer",
+              };
 
-            return (
-              <div
-                key={index}
-                className="text-center py-5 px-3 col-md-3 col-sm-6 col-6 border"
-                style={dynamicStyle}
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
-              >
-                <i
-                  className={`${
-                    iconMap[medical_specialization] || "fas fa-question"
-                  } fa-2xl`}
-                ></i>
-                <h5 className="py-3 px-3">
-                  <strong>{medical_specialization}</strong>
-                </h5>
-              </div>
-            );
-          })}
+              return (
+                <div
+                  key={index}
+                  className="text-center py-5 px-3 col-md-3 col-sm-6 col-6 border"
+                  style={dynamicStyle}
+                  onMouseEnter={() => setHoveredCard(index)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                >
+                  <i
+                    className={`${`fas ${specialization.icon_tag}`} fa-2xl`}
+                  ></i>
+                  <h5 className="py-3 px-3">
+                    <strong>{specialization.specialization}</strong>
+                  </h5>
+                </div>
+              );
+            })}
         </div>
       </div>
 

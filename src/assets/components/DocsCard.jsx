@@ -78,9 +78,7 @@ export default function DocsCard({ data }) {
             </h5>
 
             <div className="d-flex justify-content-between mt-4">
-              <span className="badge bg-primary">
-                {data.medical_specialization}
-              </span>
+              <span className="badge bg-primary">{data.specialization}</span>
               <span className="text-warning">
                 {voteStarsFormatter(data.avg_vote)}
               </span>

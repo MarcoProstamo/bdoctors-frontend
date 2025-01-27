@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDocContext } from "../contexts/DoctorsContext";
 
 import DocsCard from "../components/DocsCard";
@@ -30,8 +30,7 @@ export default function AdvanceDoctorSearchPage() {
         el.surname.toLowerCase().includes(input.toLowerCase());
 
       const matchesSpecialization = specialization
-        ? el.medical_specialization.toLowerCase() ===
-          specialization.toLowerCase()
+        ? el.specialization.toLowerCase() === specialization.toLowerCase()
         : true;
 
       return matchesNameOrSurname && matchesSpecialization;
@@ -87,7 +86,7 @@ export default function AdvanceDoctorSearchPage() {
                     key={doc.id}
                     onClick={onClickSpecializationFilter}
                   >
-                    {doc.medical_specialization}
+                    {doc.specialization}
                   </button>
                 );
               })}
@@ -111,9 +110,13 @@ export default function AdvanceDoctorSearchPage() {
       </div>
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
         {filteredDocs &&
+          filteredDocs.length > 0 &&
           filteredDocs.map((doc) => {
             return <DocsCard key={doc.id} data={doc} />;
           })}
+        {filteredDocs && filteredDocs.length === 0 && (
+          <div className="col-12 text-center">No doctors found.</div>
+        )}
       </div>
     </div>
   );

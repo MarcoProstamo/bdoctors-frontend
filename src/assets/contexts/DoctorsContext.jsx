@@ -12,7 +12,7 @@ export const DoctorContextProvider = ({ children }) => {
     fetch(INDEX_DOCTORS)
       .then((res) => res.json())
       .then((data) => {
-        setDocsData({ ...docsData, docs: data });
+        setDocsData((docsData) => ({ ...docsData, docs: data }));
       })
       .catch((err) => {
         console.error(err);
@@ -23,7 +23,7 @@ export const DoctorContextProvider = ({ children }) => {
     fetch(INDEX_ICONS)
       .then((res) => res.json())
       .then((data) => {
-        setDocsData({ ...docsData, icons: data });
+        setDocsData((docsData) => ({ ...docsData, icons: data }));
       })
       .catch((err) => {
         console.error(err);
@@ -32,7 +32,7 @@ export const DoctorContextProvider = ({ children }) => {
 
   const [docsData, setDocsData] = useState({
     docs: [],
-    icon: [],
+    icons: [],
   });
 
   useEffect(() => {

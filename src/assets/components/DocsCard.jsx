@@ -19,9 +19,7 @@ export default function DocsCard({ data }) {
     return starsArray;
   }
 
-  const iconTag = icons.find((el) => el.specialization === data.specialization);
-
-  console.log(iconTag);
+  const icon = icons.find((el) => el.specialization === data.specialization);
 
   return (
     <div className="col">
@@ -39,7 +37,7 @@ export default function DocsCard({ data }) {
 
             <div className="d-flex justify-content-between mt-4">
               <span className="badge text-bg-success">
-                <i className={`fas ${iconTag && iconTag.icon_tag}`}></i>{" "}
+                <i className={`fas ${icon && icon.icon_tag}`}></i>{" "}
                 {data.specialization}
               </span>
               <span className="text-warning">

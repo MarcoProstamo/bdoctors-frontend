@@ -60,6 +60,8 @@ export default function AdvanceDoctorSearchPage() {
     filter.specialization
   );
 
+  const icon = icons.find((el) => el.specialization === filter.specialization);
+
   return (
     <>
       <section className="pt-5 pb-4">
@@ -134,6 +136,7 @@ export default function AdvanceDoctorSearchPage() {
             {filter.specialization ? (
               <div>
                 <span className="badge bg-success fs-6">
+                  <i className={`fas ${icon && icon.icon_tag} me-2`}></i>
                   {filter.specialization}
                 </span>
               </div>
@@ -153,7 +156,7 @@ export default function AdvanceDoctorSearchPage() {
               return <DocsCard key={doc.id} data={doc} />;
             })}
           {filteredDocs && filteredDocs.length === 0 && (
-            <div className="col-12 text-center fs-3">
+            <div className="col-12 text-center fs-4">
               Nessun Dottore Trovato.
             </div>
           )}

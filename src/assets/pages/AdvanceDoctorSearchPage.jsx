@@ -2,13 +2,16 @@ import { useState, useEffect } from "react";
 import { useDocContext } from "../contexts/DoctorsContext";
 
 import DocsCard from "../components/DocsCard";
+import { useLocation } from "react-router-dom";
 
 export default function AdvanceDoctorSearchPage() {
   const { docs, icons } = useDocContext();
+  const location = useLocation();
+  const { specialization } = location.state || "";
 
   const [filter, setFilter] = useState({
     searchInput: "",
-    specialization: "",
+    specialization: specialization,
   });
 
   const handleInputChange = (e) => {

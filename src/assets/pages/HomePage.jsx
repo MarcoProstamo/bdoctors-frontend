@@ -6,6 +6,22 @@ export default function HomePage() {
   const [hoveredCard, setHoveredCard] = useState(null);
   const mostRatedDocs = docs.filter((doc) => doc.avg_vote > 4);
   const API_IMG = import.meta.env.VITE_API_IMG;
+
+  function voteStarsFormatter(vote) {
+    if (!vote || vote < 0) vote = 0;
+
+    const stars = 5;
+    const starsNumber = Math.round(vote);
+    const starsArray = [];
+
+    for (let i = 0; i < stars; i++)
+      i < starsNumber
+        ? starsArray.push(<i key={i} className="fa-solid fa-star"></i>)
+        : starsArray.push(<i key={i} className="fa-regular fa-star"></i>);
+
+    return starsArray;
+  }
+
   return (
     <>
       <div className="container my-3 py-3 px-4">
@@ -19,17 +35,37 @@ export default function HomePage() {
         >
           <div className="carousel-inner">
             {mostRatedDocs &&
-              mostRatedDocs.map(({ image, name, id }, index) => (
+              mostRatedDocs.map((doc, index) => (
                 <Link
-                  to={`/doctors/${id}`}
-                  key={id}
-                  className={`carousel-item ${index === 0 ? "active" : ""}`}
+                  to={`/doctors/${doc.id}`}
+                  state={doc.specialization}
+                  key={doc.id}
+                  className={`text-decoration-none carousel-item ${
+                    index === 0 ? "active" : ""
+                  } card p-4 shadow-sm rounded-4 bg-light`}
                 >
-                  <img
-                    src={`${API_IMG + image + ".png"}`}
-                    className=" carousel-inner-homepage img d-block w-100"
-                    alt={name}
-                  />
+                  <div className="d-flex flex-column justify-content-center align-items-center mb-3">
+                    <img
+                      src={API_IMG + doc.image + ".png"}
+                      className="img-thumbnail me-3 rounded-circle shadow-lg"
+                      style={{
+                        width: "150px",
+                        height: "150px",
+                        objectFit: "cover",
+                      }}
+                      alt={`Foto di ${doc.name} ${doc.surname}`}
+                    />
+                    <div>
+                      <h3 className="card-title mb-0 fs-3 text-dark">
+                        {doc.name} {doc.surname}
+                      </h3>
+                      <p className="fs-5 text-muted">{doc.specialization}</p>
+                    </div>
+
+                    <div className="text-warning fs-3">
+                      {voteStarsFormatter(doc.avg_vote)}
+                    </div>
+                  </div>
                 </Link>
               ))}
           </div>
@@ -40,7 +76,7 @@ export default function HomePage() {
             data-bs-slide="prev"
           >
             <span
-              className="carousel-control-prev-icon"
+              className="carousel-control-prev-icon text-primary"
               aria-hidden="true"
             ></span>
             <span className="visually-hidden">Previous</span>
@@ -52,7 +88,7 @@ export default function HomePage() {
             data-bs-slide="next"
           >
             <span
-              className="carousel-control-next-icon"
+              className="carousel-control-next-icon text-primary"
               aria-hidden="true"
             ></span>
             <span className="visually-hidden">Next</span>
@@ -103,7 +139,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="container-speccializzazioni-homepage pt-5 px-4 mt-4">
+      <div className="container container-speccializzazioni-homepage pt-5 px-4 mt-4">
         <div className="text-center pt-5 ">
           <h2>
             <strong>

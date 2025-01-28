@@ -42,22 +42,30 @@ export default function AddDoctorPage() {
   return (
     <>
       <div className="container">
-        <section className="mt-5">
-          <h1>Crea un nuovo profilo come Dottore: </h1>
-          <div className="my-5"></div>
-          <FormDoctor onSubmit={handleDoctorRegistration} />
-          {message && (
-            <div
-              className={`mt-4 p-3 rounded ${
-                message.includes("successo")
-                  ? "text-success-emphasis bg-success-subtle border border-success-subtle"
-                  : "text-danger-emphasis bg-danger-subtle border border-danger-subtle"
-              }`}
-            >
-              {message}
+        <div className="row row-cols-2 mt-5">
+          <section className=" col ">
+            <h1>Sei un medico?</h1>
+            <h4>Registrati e raggiungi nuovi pazienti:</h4>
+            <div className="mt-5">
+              <FormDoctor onSubmit={handleDoctorRegistration} />
+              {message && (
+                <div
+                  className={`mt-4 p-3 rounded ${
+                    message.includes("successo")
+                      ? "text-success-emphasis bg-success-subtle border border-success-subtle"
+                      : "text-danger-emphasis bg-danger-subtle border border-danger-subtle"
+                  }`}
+                >
+                  {message}
+                </div>
+              )}
             </div>
-          )}
-        </section>
+          </section>
+
+          <div className="col bg-light">
+            <p>prova</p>
+          </div>
+        </div>
       </div>
     </>
   );

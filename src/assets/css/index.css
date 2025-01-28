@@ -44,7 +44,14 @@ body {
 
 /* # HomePage */
 
-.container-speccializzazioni {
+.carousel-inner-homepage img {
+  margin-bottom: 15px;
+  max-height: 561px;
+  height: 100%;
+  object-fit: contain;
+  background-color: #cffff6;
+}
+.container-speccializzazioni-homepage {
   height: 334px;
   background: #00bcd41a;
   padding: 20px;
@@ -54,7 +61,7 @@ body {
   text-align: center;
 }
 
-.cards-container {
+.cards-container-homepage {
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -62,7 +69,7 @@ body {
   flex-wrap: wrap;
 }
 
-.card {
+.card-homepage {
   background: white;
   padding: 20px;
   border-radius: 12px;
@@ -72,22 +79,22 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
-.card:hover {
+.card-homepage:hover {
   transform: translateY(-5px);
 }
 
-.card img {
+.card-homepage img {
   width: 238px;
   margin-bottom: 15px;
 }
 
-.card h3 {
+.card-homepage h3 {
   font-size: 1.4rem;
   margin-bottom: 10px;
   color: #333;
 }
 
-.card p {
+.card-homepage p {
   font-size: 1rem;
   color: #555;
 }

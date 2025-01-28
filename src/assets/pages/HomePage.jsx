@@ -27,7 +27,7 @@ export default function HomePage() {
                 >
                   <img
                     src={`${API_IMG + image + ".png"}`}
-                    className="d-block w-100"
+                    className=" carousel-inner-homepage img d-block w-100"
                     alt={name}
                   />
                 </Link>
@@ -103,7 +103,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="container-speccializzazioni pt-5 px-4 mt-4">
+      <div className="container-speccializzazioni-homepage pt-5 px-4 mt-4">
         <div className="text-center pt-5 ">
           <h2>
             <strong>
@@ -123,8 +123,8 @@ export default function HomePage() {
 
       <section className="how-it-works px-5 py-4 mt-3">
         <h2 className="text-center ">Come funziona BDoctor?</h2>
-        <div className="cards-container">
-          <div className="card">
+        <div className="cards-container-homepage">
+          <div className="card-homepage">
             <img
               src="https://th.bing.com/th/id/OIP.TYVde0Uv_exmGzUlBfW47wHaHa?w=2500&h=2500&rs=1&pid=ImgDetMain"
               alt="Scegli il Medico"
@@ -138,7 +138,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="card">
+          <div className="card-homepage">
             <img
               src="https://saludocupacionalpitalito.com/images/contacto2.png"
               alt="Prenota la visita"
@@ -151,7 +151,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="card">
+          <div className="card-homepage">
             <img
               src="https://th.bing.com/th/id/OIP.RuvrKooL_0z40Uqb6rW39gHaHa?w=512&h=512&rs=1&pid=ImgDetMain"
               alt="Vai all'appuntamento"
@@ -159,7 +159,7 @@ export default function HomePage() {
             <h3>Vai all'appuntamento</h3>
             <p>
               Vai dal Medico scelto, nel giorno e nell'ora selezionati. Dopo la
-              visita potrai <strong>lasciare</strong> una tua{" "}
+              visita potrai <strong>lasciare</strong> una tua
               <strong>recensione</strong> che sarà utile per gli altri pazienti.
             </p>
           </div>

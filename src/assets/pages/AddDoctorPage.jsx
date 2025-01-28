@@ -11,7 +11,7 @@ export default function AddDoctorPage() {
       email: data.email,
       cellphone_number: data.cellphone_number,
       address: data.address,
-      medical_specialization: data.medical_specialization,
+      specialization_id: data.specialization_id,
     };
 
     fetch("http://localhost:3000/doctors", {

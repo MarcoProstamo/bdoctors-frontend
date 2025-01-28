@@ -8,7 +8,7 @@ export default function FormDoctor({ onSubmit }) {
     email: "",
     cellphone_number: "",
     address: "",
-    medical_specialization: "",
+    specialization_id: "",
   };
 
   const [formData, setFormData] = useState(formInitialData);

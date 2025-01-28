@@ -150,8 +150,8 @@ export default function FormDoctor({ onSubmit }) {
           id="inputSpecialization"
           className="form-select "
           required
-          name="medical_specialization"
-          value={formData.medical_specialization}
+          name="specialization_id"
+          value={formData.specialization_id}
           onChange={handleFormData}
         >
           <option defaultValue disabled value="">
@@ -159,7 +159,7 @@ export default function FormDoctor({ onSubmit }) {
           </option>
           {icons &&
             icons.map(({ id, specialization }) => (
-              <option key={id} value={specialization}>
+              <option key={id} value={id}>
                 {specialization}
               </option>
             ))}

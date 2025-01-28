@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useDocContext } from "../contexts/DoctorsContext";
 
 export default function DetailDoctorPage() {
   let { id: doctorId } = useParams();
+
   const [doctor, setDoctor] = useState(null);
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -10,6 +12,8 @@ export default function DetailDoctorPage() {
   const [newText, setNewText] = useState("");
   const [newName, setNewName] = useState("");
   const [newVote, setNewVote] = useState(0);
+
+  const { icons } = useDocContext();
 
   useEffect(() => {
     const url = import.meta.env.VITE_API_INDEX + "/" + doctorId;
@@ -86,12 +90,14 @@ export default function DetailDoctorPage() {
       });
   };
 
+  // Funzione per resettare i campi del modulo di recensione.
   const resetForm = (e) => {
     setNewText("");
     setNewName("");
     setNewVote(0);
   };
 
+  // Funzione per gestire il click sulle stelle per il voto.
   const handleStarClick = (vote) => {
     setNewVote(vote);
   };
@@ -135,6 +141,10 @@ export default function DetailDoctorPage() {
     return <div className="text-center">No doctor data available</div>;
   }
 
+  const icon = icons.find(
+    (icon) => icon.specialization === doctor.specialization
+  );
+
   const doctorImagePath =
     "http://localhost:3000" + "/doctor_images/imageDoc_" + doctorId + ".png";
 
@@ -167,7 +177,11 @@ export default function DetailDoctorPage() {
                     <h3 className="card-title mb-0 fs-3 text-dark">
                       {doctor.name} {doctor.surname}
                     </h3>
-                    <p className="fs-5 text-muted">{doctor.specialization}</p>
+
+                    <p className="badge bg-light filter-icons-tag fs-6">
+                      {icon && <i className={`fas ${icon.icon_tag} me-2`}></i>}
+                      {doctor.specialization}
+                    </p>
                   </div>
                 </div>
                 <div className="text-dark">
@@ -188,6 +202,7 @@ export default function DetailDoctorPage() {
               </div>
             </div>
 
+            {/* Colonna per le recensioni */}
             <div className="col-md-6 ">
               <h2 className="text-center mb-4 fs-1 text-dark-emphasis">
                 Recensioni
@@ -217,6 +232,8 @@ export default function DetailDoctorPage() {
           </div>
         </div>
       </div>
+
+      {/* Sezione per scrivere una recensione */}
       <div className="page-wrapper" style={{ backgroundColor: "#FFFFF7" }}>
         <div className="container">
           <div className="row ">

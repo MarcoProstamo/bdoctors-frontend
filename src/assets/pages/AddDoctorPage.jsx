@@ -84,7 +84,7 @@ export default function AddDoctorPage() {
           </div>
         </div>
         <h4 className="text-center my-5">Compila il form qui sotto:</h4>
-        <section className=" mt-5 p-5 border shadow .bg-light.bg-gradient">
+        <section className=" mt-5 p-5 border shadow bg-white">
           <div>
             <FormDoctor onSubmit={handleDoctorRegistration} />
             {message && (

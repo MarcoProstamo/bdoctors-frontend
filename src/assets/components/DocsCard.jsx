@@ -2,65 +2,18 @@ import { Link } from "react-router-dom";
 
 export default function DocsCard({ data }) {
   function voteStarsFormatter(vote) {
-    if (vote <= 1.5) {
-      return (
-        <>
-          <i className="fa-solid fa-star"></i>
-          <i className="fa-regular fa-star"></i>
-          <i className="fa-regular fa-star"></i>
-          <i className="fa-regular fa-star"></i>
-          <i className="fa-regular fa-star"></i>
-        </>
-      );
-    }
+    if (!vote || vote < 0) vote = 0;
 
-    if (vote <= 2.5) {
-      return (
-        <>
-          <i className="fa-solid fa-star"></i>
-          <i className="fa-solid fa-star"></i>
-          <i className="fa-regular fa-star"></i>
-          <i className="fa-regular fa-star"></i>
-          <i className="fa-regular fa-star"></i>
-        </>
-      );
-    }
+    const stars = 5;
+    const starsNumber = Math.round(vote);
+    const starsArray = [];
 
-    if (vote <= 3.5) {
-      return (
-        <>
-          <i className="fa-solid fa-star"></i>
-          <i className="fa-solid fa-star"></i>
-          <i className="fa-solid fa-star"></i>
-          <i className="fa-regular fa-star"></i>
-          <i className="fa-regular fa-star"></i>
-        </>
-      );
-    }
+    for (let i = 0; i < stars; i++)
+      i < starsNumber
+        ? starsArray.push(<i key={i} className="fa-solid fa-star"></i>)
+        : starsArray.push(<i key={i} className="fa-regular fa-star"></i>);
 
-    if (vote <= 4.5) {
-      return (
-        <>
-          <i className="fa-solid fa-star"></i>
-          <i className="fa-solid fa-star"></i>
-          <i className="fa-solid fa-star"></i>
-          <i className="fa-solid fa-star"></i>
-          <i className="fa-regular fa-star"></i>
-        </>
-      );
-    }
-
-    if (vote <= 5) {
-      return (
-        <>
-          <i className="fa-solid fa-star"></i>
-          <i className="fa-solid fa-star"></i>
-          <i className="fa-solid fa-star"></i>
-          <i className="fa-solid fa-star"></i>
-          <i className="fa-solid fa-star"></i>
-        </>
-      );
-    }
+    return starsArray;
   }
 
   return (

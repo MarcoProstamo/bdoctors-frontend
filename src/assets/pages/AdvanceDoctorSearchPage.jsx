@@ -62,11 +62,12 @@ export default function AdvanceDoctorSearchPage() {
 
   return (
     <>
-      <section className="py-4">
+      <section className="pt-5 pb-4">
         <div className="container">
-          <div className="mt-5">
-            <h1 className="fw-bold">Advanced Doctors Search Page</h1>
-          </div>
+          <h1 className="fw-bold">
+            <i className="fa-solid fa-magnifying-glass me-2"></i> Ricerca
+            Avanzata
+          </h1>
 
           <hr />
 

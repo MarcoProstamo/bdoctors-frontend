@@ -55,7 +55,7 @@ export default function DetailDoctorPage() {
       doctor_id: doctorId,
     };
 
-    fetch(import.meta.env.VITE_API_INDEX + "/reviews", {
+    fetch("http://localhost:3000/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -86,8 +86,13 @@ export default function DetailDoctorPage() {
       });
   };
 
-  // ! Render stars function
+  const resetForm = (e) => {
+    setNewText("");
+    setNewName("");
+    setNewVote(0);
+  };
 
+  // ! Render stars function
   function renderStars(vote) {
     const maxStars = 5;
     const fullStar = "★";
@@ -120,93 +125,142 @@ export default function DetailDoctorPage() {
     "http://localhost:3000" + "/doctor_images/imageDoc_" + doctorId + ".png";
 
   return (
-    <div className="container pt-5">
-      <h1 className="text-center mb-4 fs-1">Dettaglio dottore</h1>
-      <div className="row mb-4">
-        <div className="col-md-6 offset-md-3">
-          <div className="card p-4">
-            <div className="d-flex align-items-center">
-              <img
-                src={doctorImagePath}
-                className="img-thumbnail me-3"
-                style={{ width: "150px", height: "150px", objectFit: "cover" }}
-              />
-              <h3 className="card-title mb-0">
-                {doctor.name} {doctor.surname}
-              </h3>
-            </div>
-            <p className="mt-3">
-              <strong>Email:</strong> {doctor.email}
-            </p>
-            <p>
-              <strong>Numero di telefono:</strong> {doctor.cellphone_number}
-            </p>
-            <p>
-              <strong>Specializzazione medica:</strong> {doctor.specialization}
-            </p>
-            <p>
-              <strong>Indirizzo:</strong> {doctor.address}
-            </p>
-            <p>
-              <strong>Media voti:</strong> {doctor.avg_vote}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="row mb-4">
-        <div className="col-md-8 offset-md-2">
-          <h2 className="text-center mb-4 fs-1">Recensioni</h2>
-          <div className="list-group">
-            {reviews &&
-              reviews.map((review, index) => (
-                <div key={index} className="list-group-item">
+    <div>
+      <div className="page-wrapper" style={{ backgroundColor: "#CFFFF6" }}>
+        <div className="container py-5">
+          <div className="row mb-4 d-flex align-items-stretch">
+            <div className="col-md-6">
+              <h1 className="mb-4 fs-1 text-dark-emphasis ">
+                Dettaglio Dottore
+                <i className="fa-solid fa-circle-info mx-3"></i>
+              </h1>
+              <div className="card p-4 shadow-sm rounded-4 bg-light">
+                <div className="d-flex align-items-center mb-3">
+                  <img
+                    src={doctorImagePath}
+                    className="img-thumbnail me-3 rounded-circle shadow-lg"
+                    style={{
+                      width: "150px",
+                      height: "150px",
+                      objectFit: "cover",
+                    }}
+                    alt={`Foto di ${doctor.name} ${doctor.surname}`}
+                  />
+                  <div>
+                    <h3 className="card-title mb-0 fs-3 text-dark">
+                      {doctor.name} {doctor.surname}
+                    </h3>
+                    <p className="fs-5 text-muted">{doctor.specialization}</p>
+                  </div>
+                </div>
+                <div className="text-dark">
                   <p>
-                    <strong>{review.name}</strong>
+                    <strong>Email:</strong> {doctor.email}
                   </p>
-                  <p>{review.text}</p>
                   <p>
-                    <strong>Voto:</strong> {renderStars(review.vote)}
+                    <strong>Telefono:</strong> {doctor.cellphone_number}
+                  </p>
+                  <p>
+                    <strong>Indirizzo:</strong> {doctor.address}
+                  </p>
+                  <p>
+                    <strong>Media Voti:</strong> {doctor.avg_vote}
                   </p>
                 </div>
-              ))}
+              </div>
+            </div>
+
+            <div className="col-md-6 ">
+              <h2 className="text-center mb-4 fs-1 text-dark-emphasis">
+                Recensioni
+                <i className="fa-solid fa-ranking-star mx-3"></i>
+              </h2>
+              <div
+                className="list-group overflow-y-auto"
+                style={{ maxHeight: "400px" }}
+              >
+                {reviews &&
+                  reviews.map((review, index) => (
+                    <div
+                      key={index}
+                      className="list-group-item shadow-sm mb-3 rounded-3 bg-light"
+                    >
+                      <p>
+                        <strong>{review.name}</strong>
+                      </p>
+                      <p>{review.text}</p>
+                      <p>
+                        <strong>Voto:</strong> {renderStars(review.vote)}
+                      </p>
+                    </div>
+                  ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div className="row mb-4">
-        <div className="col-md-8 offset-md-2">
-          <h2 className="text-center mb-3">Scrivi una recensione</h2>
-          <form onSubmit={handleReviewSubmit}>
-            <div className="mb-3">
-              <textarea
-                className="form-control"
-                value={newText}
-                onChange={(e) => setNewText(e.target.value)}
-                placeholder="Scrivi la tua recensione"
-              />
+      <div className="page-wrapper" style={{ backgroundColor: "#FFFFF7" }}>
+        <div className="container">
+          <div className="row ">
+            <h2
+              className="text-center mb-5 fs-1 text-dark-emphasis"
+              style={{ marginTop: "150px" }}
+            >
+              Scrivi una recensione
+              <i className="fa-solid fa-comment-dots mx-3"></i>
+            </h2>
+
+            <div className="col-md-8 offset-md-2 bg-light mb-5">
+              <form
+                onSubmit={handleReviewSubmit}
+                className="border p-4 rounded-3 shadow-sm bg-light"
+              >
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={newName}
+                    onChange={(e) => setNewName(e.target.value)}
+                    placeholder="Il tuo nome"
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <textarea
+                    className="form-control"
+                    value={newText}
+                    onChange={(e) => setNewText(e.target.value)}
+                    placeholder="Scrivi la tua recensione"
+                    rows="4"
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="number"
+                    className="form-control"
+                    value={newVote}
+                    onChange={(e) => setNewVote(Number(e.target.value))}
+                    min="1"
+                    max="5"
+                    placeholder="Voto (1-5)"
+                  />
+                </div>
+
+                <div className="d-flex justify-content-evenly">
+                  <button className="btn btn-primary" type="submit">
+                    Invia
+                  </button>
+                  <button
+                    onClick={resetForm}
+                    className="btn btn-danger"
+                    type="reset"
+                  >
+                    Cancella
+                  </button>
+                </div>
+              </form>
             </div>
-            <div className="mb-3">
-              <input
-                type="number"
-                className="form-control"
-                value={newVote}
-                onChange={(e) => setNewVote(Number(e.target.value))}
-                min="0"
-                max="5"
-              />
-            </div>
-            <div className="d-flex justify-content-center">
-              <button className="btn btn-primary me-2" type="submit">
-                Invia
-              </button>
-              <input
-                type="text"
-                className="form-control"
-                value={newName}
-                onChange={(e) => setNewName(e.target.value)}
-                placeholder="Il tuo nome"
-              />
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>

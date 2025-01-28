@@ -181,7 +181,8 @@ export default function DetailDoctorPage() {
                     <strong>Indirizzo:</strong> {doctor.address}
                   </p>
                   <p>
-                    <strong>Media Voti:</strong> {doctor.avg_vote}
+                    <strong>Media Voti:</strong>
+                    {renderStars(Math.round(doctor.avg_vote))}
                   </p>
                 </div>
               </div>

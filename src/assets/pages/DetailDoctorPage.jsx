@@ -148,7 +148,10 @@ export default function DetailDoctorPage() {
                 Dettaglio Dottore
                 <i className="fa-solid fa-circle-info mx-3"></i>
               </h1>
-              <div className="card p-4 shadow-sm rounded-4 bg-light">
+              <div
+                className="card p-4 shadow-sm rounded-4 bg-light"
+                style={{ minHeight: "400px" }}
+              >
                 <div className="d-flex align-items-center mb-3">
                   <img
                     src={doctorImagePath}
@@ -197,7 +200,9 @@ export default function DetailDoctorPage() {
                   reviews.map((review, index) => (
                     <div
                       key={index}
-                      className="list-group-item shadow-sm mb-3 rounded-3 "
+                      className={`list-group-item shadow-sm rounded-3 bg-light ${
+                        index !== reviews.length - 1 ? "mb-3" : ""
+                      }`}
                     >
                       <p>
                         <strong>{review.name}</strong>

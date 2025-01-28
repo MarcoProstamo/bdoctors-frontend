@@ -8,7 +8,7 @@ export default function FormDoctor({ onSubmit }) {
     email: "",
     cellphone_number: "",
     address: "",
-    medical_specialization: "",
+    specialization_id: "",
   };
 
   const [formData, setFormData] = useState(formInitialData);
@@ -49,7 +49,7 @@ export default function FormDoctor({ onSubmit }) {
       onSubmit={handleFormSubmit}
     >
       <div className="col-md-6">
-        <label htmlFor="inputName" className="form-label">
+        <label htmlFor="inputName" className="form-label fw-medium">
           Nome
         </label>
         <input
@@ -67,7 +67,7 @@ export default function FormDoctor({ onSubmit }) {
       </div>
 
       <div className="col-md-6">
-        <label htmlFor="inputSurname" className="form-label">
+        <label htmlFor="inputSurname" className="form-label fw-medium">
           Cognome
         </label>
         <input
@@ -85,7 +85,7 @@ export default function FormDoctor({ onSubmit }) {
       </div>
 
       <div className="col-md-6">
-        <label htmlFor="inputEmail" className="form-label">
+        <label htmlFor="inputEmail" className="form-label fw-medium">
           Email
         </label>
         <input
@@ -103,7 +103,7 @@ export default function FormDoctor({ onSubmit }) {
       </div>
 
       <div className="col-md-6">
-        <label htmlFor="inputTelephone" className="form-label">
+        <label htmlFor="inputTelephone" className="form-label fw-medium">
           Telefono
         </label>
         <div className="input-group">
@@ -124,7 +124,7 @@ export default function FormDoctor({ onSubmit }) {
       </div>
 
       <div className="col-12">
-        <label htmlFor="inputAddress" className="form-label">
+        <label htmlFor="inputAddress" className="form-label fw-medium">
           Indirizzo / Città / Stato
         </label>
         <input
@@ -143,15 +143,15 @@ export default function FormDoctor({ onSubmit }) {
       </div>
 
       <div className="col-md-6">
-        <label htmlFor="inputSpecialization" className="form-label">
+        <label htmlFor="inputSpecialization" className="form-label fw-medium">
           Specializzazione
         </label>
         <select
           id="inputSpecialization"
           className="form-select "
           required
-          name="medical_specialization"
-          value={formData.medical_specialization}
+          name="specialization_id"
+          value={formData.specialization_id}
           onChange={handleFormData}
         >
           <option defaultValue disabled value="">
@@ -159,7 +159,7 @@ export default function FormDoctor({ onSubmit }) {
           </option>
           {icons &&
             icons.map(({ id, specialization }) => (
-              <option key={id} value={specialization}>
+              <option key={id} value={id}>
                 {specialization}
               </option>
             ))}
@@ -168,8 +168,11 @@ export default function FormDoctor({ onSubmit }) {
         <div className="invalid-feedback">Campo obbligatorio</div>
       </div>
 
-      <div className="col-12">
-        <button type="submit" className="btn btn-primary mt-3">
+      <div className="col-12 text-center">
+        <button
+          type="submit"
+          className="btn btn-primary mt-3 w-100 h-100 fw-bold"
+        >
           Registrati
         </button>
       </div>

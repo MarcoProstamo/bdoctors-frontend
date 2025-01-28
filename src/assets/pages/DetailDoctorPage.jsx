@@ -187,14 +187,11 @@ export default function DetailDoctorPage() {
       </div>
 
       <div className="row ">
-        <div
-          className="col-md-8 offset-md-2 bg-light"
-          style={{ marginTop: "200px" }}
-        >
-          <h2 className="text-center mb-5 fs-1 ">
-            Scrivi una recensione
-            <i class="fa-solid fa-comment-dots mx-3"></i>
-          </h2>
+        <h2 className="text-center mb-5 fs-1 " style={{ marginTop: "200px" }}>
+          Scrivi una recensione
+          <i class="fa-solid fa-comment-dots mx-3"></i>
+        </h2>
+        <div className="col-md-8 offset-md-2 bg-light">
           <form
             onSubmit={handleReviewSubmit}
             className="border p-4 rounded-3 shadow-sm bg-light"

@@ -36,8 +36,12 @@ export default function DocsCard({ data }) {
             </h5>
 
             <div className="d-flex justify-content-between mt-4">
-              <span className="badge text-bg-success">
-                <i className={`fas ${icon && icon.icon_tag}`}></i>{" "}
+              <span className="badge text-bg-light">
+                <i
+                  className={`filter-icons-tag fas ${
+                    icon && icon.icon_tag
+                  } me-1`}
+                ></i>
                 {data.specialization}
               </span>
               <span className="text-warning">

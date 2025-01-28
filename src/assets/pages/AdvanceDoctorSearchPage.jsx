@@ -129,7 +129,8 @@ export default function AdvanceDoctorSearchPage() {
         <div className="mt-4 d-flex justify-content-between mb-2">
           <div className="d-flex align-items-center">
             <h2 className="fw-bold mb-0 me-4 text-col">
-              <i className="fa-solid fa-user-doctor me-3"></i>Lista dei Medici
+              <i className="fa-solid fa-user-doctor me-3 filter-icons-tag"></i>
+              Lista dei Medici
             </h2>
 
             {filter.specialization ? (

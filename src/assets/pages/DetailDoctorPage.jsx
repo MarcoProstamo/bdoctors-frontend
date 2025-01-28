@@ -171,7 +171,7 @@ export default function DetailDoctorPage() {
               reviews.map((review, index) => (
                 <div
                   key={index}
-                  className="list-group-item shadow-sm mb-3 rounded-3"
+                  className="list-group-item shadow-sm mb-3 rounded-3 bg-light"
                 >
                   <p>
                     <strong>{review.name}</strong>
@@ -187,7 +187,10 @@ export default function DetailDoctorPage() {
       </div>
 
       <div className="row ">
-        <div className="col-md-8 offset-md-2" style={{ marginTop: "200px" }}>
+        <div
+          className="col-md-8 offset-md-2 bg-light"
+          style={{ marginTop: "200px" }}
+        >
           <h2 className="text-center mb-5 fs-1 ">
             Scrivi una recensione
             <i class="fa-solid fa-comment-dots mx-3"></i>

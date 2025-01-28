@@ -28,71 +28,73 @@ export default function HomePage() {
         <h2 className="text-center py-5  px-4">
           <strong> I nostri migliori dottori </strong>
         </h2>
-        <div
-          id="carouselExampleAutoplaying"
-          className="carousel slide"
-          data-bs-ride="carousel"
-        >
-          <div className="carousel-inner">
-            {mostRatedDocs &&
-              mostRatedDocs.map((doc, index) => (
-                <Link
-                  to={`/doctors/${doc.id}`}
-                  state={doc.specialization}
-                  key={doc.id}
-                  className={`text-decoration-none carousel-item ${
-                    index === 0 ? "active" : ""
-                  } card p-4 shadow-sm rounded-4 bg-light`}
-                >
-                  <div className="d-flex flex-column justify-content-center align-items-center mb-3">
-                    <img
-                      src={API_IMG + doc.image + ".png"}
-                      className="img-thumbnail me-3 rounded-circle shadow-lg"
-                      style={{
-                        width: "150px",
-                        height: "150px",
-                        objectFit: "cover",
-                      }}
-                      alt={`Foto di ${doc.name} ${doc.surname}`}
-                    />
-                    <div>
-                      <h3 className="card-title mb-0 fs-3 text-dark">
-                        {doc.name} {doc.surname}
-                      </h3>
-                      <p className="fs-5 text-muted">{doc.specialization}</p>
-                    </div>
+        <div className="d-flex justify-content-center">
+          <div
+            id="carouselExampleAutoplaying"
+            className="carousel slide w-50"
+            data-bs-ride="carousel"
+          >
+            <div className="carousel-inner">
+              {mostRatedDocs &&
+                mostRatedDocs.map((doc, index) => (
+                  <Link
+                    to={`/doctors/${doc.id}`}
+                    state={doc.specialization}
+                    key={doc.id}
+                    className={`text-decoration-none carousel-item ${
+                      index === 0 ? "active" : ""
+                    } card p-4 shadow-sm rounded-4 bg-light`}
+                  >
+                    <div className="d-flex flex-column justify-content-center align-items-center mb-3">
+                      <img
+                        src={API_IMG + doc.image + ".png"}
+                        className="img-thumbnail me-3 rounded-circle shadow-lg"
+                        style={{
+                          width: "150px",
+                          height: "150px",
+                          objectFit: "cover",
+                        }}
+                        alt={`Foto di ${doc.name} ${doc.surname}`}
+                      />
+                      <div>
+                        <h3 className="card-title mb-0 fs-3 text-dark">
+                          {doc.name} {doc.surname}
+                        </h3>
+                        <p className="fs-5 text-muted">{doc.specialization}</p>
+                      </div>
 
-                    <div className="text-warning fs-3">
-                      {voteStarsFormatter(doc.avg_vote)}
+                      <div className="text-warning fs-3">
+                        {voteStarsFormatter(doc.avg_vote)}
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                ))}
+            </div>
+            <button
+              className="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleAutoplaying"
+              data-bs-slide="prev"
+            >
+              <span
+                className="carousel-control-prev-icon text-primary"
+                aria-hidden="true"
+              ></span>
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button
+              className="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleAutoplaying"
+              data-bs-slide="next"
+            >
+              <span
+                className="carousel-control-next-icon text-primary"
+                aria-hidden="true"
+              ></span>
+              <span className="visually-hidden">Next</span>
+            </button>
           </div>
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleAutoplaying"
-            data-bs-slide="prev"
-          >
-            <span
-              className="carousel-control-prev-icon text-primary"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleAutoplaying"
-            data-bs-slide="next"
-          >
-            <span
-              className="carousel-control-next-icon text-primary"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Next</span>
-          </button>
         </div>
       </div>
 

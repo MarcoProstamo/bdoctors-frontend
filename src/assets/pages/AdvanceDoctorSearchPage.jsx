@@ -64,11 +64,11 @@ export default function AdvanceDoctorSearchPage() {
 
   return (
     <>
-      <section className="pt-5 pb-4">
+      <section className="filter-form pt-5 pb-4">
         <div className="container">
-          <h1 className="fw-bold">
-            <i className="fa-solid fa-magnifying-glass me-2"></i> Ricerca
-            Avanzata
+          <h1 className="fw-bold text-col">
+            <i className="fa-solid fa-magnifying-glass me-3"></i>
+            Ricerca Avanzata
           </h1>
 
           <hr />
@@ -82,9 +82,9 @@ export default function AdvanceDoctorSearchPage() {
               >
                 <label
                   htmlFor="searchInput"
-                  className="form-label fs-5 fw-bold"
+                  className="form-label fs-5 text-col"
                 >
-                  Cerca per Nome o Cognome
+                  Filtra per Nome o Cognome
                 </label>
                 <input
                   placeholder="search..."
@@ -98,9 +98,9 @@ export default function AdvanceDoctorSearchPage() {
             </div>
 
             <div className="my-4">
-              <h5 className="text-center fw-bold mb-3">
-                Cerca per Specializazzione
-              </h5>
+              <div className="text-center fs-5 mb-3 text-col">
+                Filtra per Specializazzione
+              </div>
 
               {/* filter specialization */}
               <div className="d-flex justify-content-center flex-wrap gap-3">
@@ -108,7 +108,7 @@ export default function AdvanceDoctorSearchPage() {
                   icons.map((icon) => {
                     return (
                       <button
-                        className="btn btn-success fs-6"
+                        className="btn btn-light filter-btn fs-6 filter-icons-tag"
                         key={icon.id}
                         onClick={onClickSpecializationFilter}
                       >
@@ -126,17 +126,20 @@ export default function AdvanceDoctorSearchPage() {
       </section>
 
       <div className="container mb-5">
-        {/* doctors list */}
-        <div className="my-4 d-flex justify-content-between">
+        <div className="mt-4 d-flex justify-content-between mb-2">
           <div className="d-flex align-items-center">
-            <h2 className="fw-bold me-4">
+            <h2 className="fw-bold mb-0 me-4 text-col">
               <i className="fa-solid fa-user-doctor me-3"></i>Lista dei Medici
             </h2>
 
             {filter.specialization ? (
               <div>
-                <span className="badge bg-success fs-6">
-                  <i className={`fas ${icon && icon.icon_tag} me-2`}></i>
+                <span className="badge bg-light filter-icons-tag fs-6">
+                  <i
+                    className={`filter-icons-tag fas ${
+                      icon && icon.icon_tag
+                    } me-2`}
+                  ></i>
                   {filter.specialization}
                 </span>
               </div>
@@ -144,11 +147,17 @@ export default function AdvanceDoctorSearchPage() {
           </div>
 
           <div>
-            <button className="btn btn-danger fs-6" onClick={resetFilters}>
-              Resetta filtri
+            <button
+              className="btn filter-form btn-light fs-6"
+              onClick={resetFilters}
+            >
+              Azzera filtri
             </button>
           </div>
         </div>
+
+        <hr className="m-0 mb-3" />
+
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 g-4">
           {filteredDocs &&
             filteredDocs.length > 0 &&

@@ -1,5 +1,9 @@
+/* ! */
+
 :root {
   --primary-color: #e5f8fb;
+  --secondary-color: #8ac6f5;
+  --text-color: #5f6469;
   --bg-color: #fffff7;
 }
 
@@ -15,12 +19,34 @@ body {
 .doc-search-form {
   flex-basis: 70%;
 }
+
 .star-rating {
   color: gold;
   font-size: 1rem;
 }
 
+/* # Advanced Search Page */
+
+.filter-form {
+  background-color: var(--primary-color);
+}
+
+.filter-icons-tag {
+  color: var(--secondary-color);
+}
+
+.filter-btn:hover, .filter-btn:active {
+  color: var(--secondary-color);
+  scale: 1.05;
+}
+
+.text-col {
+  color: var(--text-color);
+}
+
+
 /* # Footer */
+
 .wrapper {
   min-height: 100vh;
   background-color: var(--bg-color);
@@ -57,6 +83,7 @@ body {
   object-fit: contain;
   background-color: #cffff6;
 }
+
 .container-speccializzazioni-homepage {
   height: 334px;
   background: #00bcd41a;

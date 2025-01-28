@@ -142,18 +142,25 @@ export default function HomePage() {
       </div>
 
       <div className="container container-speccializzazioni-homepage pt-5 px-4 mt-4">
-        <div className="text-center pt-5 ">
+        <div className="text-center pt-2 ">
           <h2>
             <strong>
               Cerca un dottore online tra i centinaia di specialisti
             </strong>
           </h2>
-          <div>
+          <div className="pt-5 ">
             <p>
-              Su Bdoctors.it trovi i migliori specialisti in tutti i campi della
-              Medicina. Se desideri effettuare una Televisita o ricevere un
-              secondo parere su una diagnosi già fatta, puoi cercare un dottore
-              online tra i nostri medici di fiducia.
+              Su <strong>Bdoctors.it</strong> trovi i migliori professionisti in
+              ogni ambito medico, pronti a offrirti consulenze rapide e sicure
+              ovunque tu sia. Che tu abbia bisogno di una Televisita o di un
+              secondo parere su una diagnosi, puoi contare sui nostri medici di
+              fiducia per ricevere risposte tempestive e affidabili.
+              Selezioniamo con cura ogni specialista per garantirti competenza,
+              professionalità e un servizio di alta qualità. Grazie alla nostra
+              piattaforma intuitiva, prenotare una consulenza è semplice e
+              veloce, senza lunghe attese. Qualunque sia la tua necessità, su
+              <strong> Bdoctors.it</strong> troverai sempre un medico pronto ad
+              aiutarti con discrezione e attenzione.
             </p>
           </div>
         </div>
@@ -172,7 +179,7 @@ export default function HomePage() {
               Fai la <strong>scelta migliore</strong> secondo le tue esigenze:
               valuta <strong>curriculum</strong>, <strong>prezzo</strong> delle
               prestazioni, <strong>patologie</strong> trattate e{" "}
-              <strong>recensioni</strong> degli altri pazienti.
+              <strong> recensioni</strong> degli altri pazienti.
             </p>
           </div>
 
@@ -198,11 +205,43 @@ export default function HomePage() {
             <p>
               Vai dal Medico scelto, nel giorno e nell'ora selezionati. Dopo la
               visita potrai <strong>lasciare</strong> una tua
-              <strong>recensione</strong> che sarà utile per gli altri pazienti.
+              <strong> recensione</strong> che sarà utile per gli altri
+              pazienti.
             </p>
           </div>
         </div>
       </section>
+
+      <div className="container container-speccializzazioni-homepage">
+        <div className="row">
+          <div className="col-12 col-md-4 ">
+            <div>
+              <img
+                src="https://www.idoctors.it/images/frontend/commenti_diconodinoi.svg?v=2"
+                alt="lavora con noi"
+                className="img-fluid ml-auto mt-auto"
+              />
+            </div>
+          </div>
+          <div className="col-12 col-md-8">
+            <div className="text-center text-md-left">
+              <h2>
+                <strong>Dicono di noi</strong>
+              </h2>
+              <p>
+                Chi ha scelto Bdoctors.it apprezza la qualità del servizio, la
+                professionalità dei medici e la comodità di poter ricevere un
+                consulto senza spostarsi da casa. Le recensioni dei nostri
+                utenti parlano di esperienze positive, diagnosi precise e
+                risposte rapide ai loro dubbi. Grazie alla nostra rete di
+                specialisti qualificati, offriamo un servizio affidabile che
+                mette al centro il benessere del paziente. La soddisfazione di
+                chi si affida a noi è la nostra migliore garanzia.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

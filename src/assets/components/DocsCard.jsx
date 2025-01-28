@@ -66,19 +66,21 @@ export default function DocsCard({ data }) {
   return (
     <div className="col">
       <Link className="text-decoration-none" to={`/doctors/${data.id}`}>
-        <div className="card">
+        <div className="card shadow">
           <img
             src={import.meta.env.VITE_API_IMG + data.image + ".png"}
             className="card-img-top"
             alt="..."
           />
           <div className="card-body">
-            <h5 className="card-title">
+            <h5 className="card-title fw-bold text-center">
               {data.name} {data.surname}
             </h5>
 
             <div className="d-flex justify-content-between mt-4">
-              <span className="badge bg-primary">{data.specialization}</span>
+              <span className="badge text-bg-success">
+                {data.specialization}
+              </span>
               <span className="text-warning">
                 {voteStarsFormatter(data.avg_vote)}
               </span>

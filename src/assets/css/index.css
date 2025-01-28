@@ -1,7 +1,7 @@
 /* ! */
 
 :root {
-  --primary-color: #e5f8fb;
+  --primary-color: #cffff6;
   --secondary-color: #8ac6f5;
   --text-color: #5f6469;
   --bg-color: #fffff7;
@@ -35,7 +35,7 @@ body {
   color: var(--secondary-color);
 }
 
-.filter-btn:hover, .filter-btn:active {
+.filter-btn:hover {
   color: var(--secondary-color);
   scale: 1.05;
 }

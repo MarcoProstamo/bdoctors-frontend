@@ -31,17 +31,13 @@ export default function DocsCard({ data }) {
             alt="..."
           />
           <div className="card-body">
-            <h5 className="card-title fw-bold text-center">
+            <h5 className="card-title fw-bold text-center text-col">
               {data.name} {data.surname}
             </h5>
 
             <div className="d-flex justify-content-between mt-4">
-              <span className="badge text-bg-light">
-                <i
-                  className={`filter-icons-tag fas ${
-                    icon && icon.icon_tag
-                  } me-1`}
-                ></i>
+              <span className="badge filter-icons-tag">
+                <i className={`fas ${icon && icon.icon_tag} me-1`}></i>
                 {data.specialization}
               </span>
               <span className="text-warning">

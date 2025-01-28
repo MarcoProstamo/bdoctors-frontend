@@ -103,25 +103,27 @@ export default function AdvanceDoctorSearchPage() {
               </div>
 
               {/* filter specialization */}
-              <div className="d-flex justify-content-center flex-wrap gap-3">
+              <div className="d-flex flex-wrap justify-content-center gap-2">
                 {icons &&
                   icons.map((icon) => {
                     return (
-                      <button
-                        className="btn btn-light filter-btn fs-6 filter-icons-tag"
-                        key={icon.id}
-                        onClick={onClickSpecializationFilter}
-                      >
-                        <i className={`fas ${icon.icon_tag} me-2`}></i>
-                        {icon.specialization}
-                      </button>
+                      <div className="d-grid col-8 col-md-4 col-lg-3 col-xxl-2">
+                        <button
+                          className="btn btn-light filter-btn fs-6 text-col"
+                          key={icon.id}
+                          onClick={onClickSpecializationFilter}
+                        >
+                          <i
+                            className={`fas ${icon.icon_tag} me-2 filter-icons-tag`}
+                          ></i>
+                          {icon.specialization}
+                        </button>
+                      </div>
                     );
                   })}
               </div>
             </div>
           </div>
-
-          <hr />
         </div>
       </section>
 
@@ -148,10 +150,7 @@ export default function AdvanceDoctorSearchPage() {
           </div>
 
           <div>
-            <button
-              className="btn filter-form btn-light fs-6"
-              onClick={resetFilters}
-            >
+            <button className="btn btn-danger fs-6" onClick={resetFilters}>
               Azzera filtri
             </button>
           </div>

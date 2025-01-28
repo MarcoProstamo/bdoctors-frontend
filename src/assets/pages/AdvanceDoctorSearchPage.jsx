@@ -110,6 +110,7 @@ export default function AdvanceDoctorSearchPage() {
                         key={icon.id}
                         onClick={onClickSpecializationFilter}
                       >
+                        <i className={`fas ${icon.icon_tag} me-2`}></i>
                         {icon.specialization}
                       </button>
                     );
@@ -130,7 +131,7 @@ export default function AdvanceDoctorSearchPage() {
               <i className="fa-solid fa-user-doctor me-3"></i>Lista dei Medici
             </h2>
 
-            {filter.specialization || specialization ? (
+            {filter.specialization ? (
               <div>
                 <span className="badge bg-success fs-6">
                   {filter.specialization}
@@ -145,7 +146,7 @@ export default function AdvanceDoctorSearchPage() {
             </button>
           </div>
         </div>
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 g-4">
           {filteredDocs &&
             filteredDocs.length > 0 &&
             filteredDocs.map((doc) => {

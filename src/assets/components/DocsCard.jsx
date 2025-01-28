@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useDocContext } from "../contexts/DoctorsContext";
 
 export default function DocsCard({ data }) {
+  const { icons } = useDocContext();
+
   function voteStarsFormatter(vote) {
     if (!vote || vote < 0) vote = 0;
 
@@ -15,6 +18,10 @@ export default function DocsCard({ data }) {
 
     return starsArray;
   }
+
+  const iconTag = icons.find((el) => el.specialization === data.specialization);
+
+  console.log(iconTag);
 
   return (
     <div className="col">
@@ -32,6 +39,7 @@ export default function DocsCard({ data }) {
 
             <div className="d-flex justify-content-between mt-4">
               <span className="badge text-bg-success">
+                <i className={`fas ${iconTag && iconTag.icon_tag}`}></i>{" "}
                 {data.specialization}
               </span>
               <span className="text-warning">

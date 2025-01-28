@@ -142,8 +142,7 @@ export default function DetailDoctorPage() {
               <strong>Numero di telefono:</strong> {doctor.cellphone_number}
             </p>
             <p>
-              <strong>Specializzazione medica:</strong>{" "}
-              {doctor.medical_specialization}
+              <strong>Specializzazione medica:</strong> {doctor.specialization}
             </p>
             <p>
               <strong>Indirizzo:</strong> {doctor.address}

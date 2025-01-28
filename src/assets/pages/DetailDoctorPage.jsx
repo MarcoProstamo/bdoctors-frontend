@@ -109,7 +109,7 @@ export default function DetailDoctorPage() {
             className={i < vote ? "filled" : "empty"}
             onClick={() => handleStarClick(i + 1)}
             style={{
-              fontSize: "1.5rem",
+              fontSize: "2rem",
               cursor: "pointer",
               color: i < vote ? "#FFD700" : "#D3D3D3",
             }}
@@ -197,15 +197,13 @@ export default function DetailDoctorPage() {
                   reviews.map((review, index) => (
                     <div
                       key={index}
-                      className="list-group-item shadow-sm mb-3 rounded-3 bg-light"
+                      className="list-group-item shadow-sm mb-3 rounded-3 "
                     >
                       <p>
                         <strong>{review.name}</strong>
                       </p>
                       <p>{review.text}</p>
-                      <p>
-                        <strong>Voto:</strong> {renderStars(review.vote)}
-                      </p>
+                      <p>{renderStars(review.vote)}</p>
                     </div>
                   ))}
               </div>
@@ -224,7 +222,7 @@ export default function DetailDoctorPage() {
               <i className="fa-solid fa-comment-dots mx-3"></i>
             </h2>
 
-            <div className="col-md-8 offset-md-2 bg-light mb-5">
+            <div className="col-md-8 offset-md-2 mb-5">
               <form
                 onSubmit={handleReviewSubmit}
                 className="border p-4 rounded-3 shadow-sm bg-light"
@@ -250,7 +248,7 @@ export default function DetailDoctorPage() {
                 </div>
 
                 <div className="mb-3">
-                  <label className="form-label">Voto</label>
+                  <label className="form-label"></label>
                   <div className="d-flex justify-content-center">
                     {renderStars(newVote)}
                   </div>

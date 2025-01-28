@@ -92,20 +92,34 @@ export default function DetailDoctorPage() {
     setNewVote(0);
   };
 
-  // ! Render stars function
-  function renderStars(vote) {
+  const handleStarClick = (vote) => {
+    setNewVote(vote);
+  };
+
+  const renderStars = (vote) => {
     const maxStars = 5;
     const fullStar = "★";
     const emptyStar = "☆";
 
     return (
       <span className="star-rating">
-        {Array.from({ length: maxStars }, (_, i) =>
-          i < vote ? fullStar : emptyStar
-        ).join(" ")}
+        {Array.from({ length: maxStars }, (_, i) => (
+          <span
+            key={i}
+            className={i < vote ? "filled" : "empty"}
+            onClick={() => handleStarClick(i + 1)}
+            style={{
+              fontSize: "1.5rem",
+              cursor: "pointer",
+              color: i < vote ? "#FFD700" : "#D3D3D3",
+            }}
+          >
+            {fullStar}
+          </span>
+        ))}
       </span>
     );
-  }
+  };
 
   if (loading) {
     return <div className="text-center">Caricamento...</div>;
@@ -234,16 +248,12 @@ export default function DetailDoctorPage() {
                     rows="4"
                   />
                 </div>
+
                 <div className="mb-3">
-                  <input
-                    type="number"
-                    className="form-control"
-                    value={newVote}
-                    onChange={(e) => setNewVote(Number(e.target.value))}
-                    min="1"
-                    max="5"
-                    placeholder="Voto (1-5)"
-                  />
+                  <label className="form-label">Voto</label>
+                  <div className="d-flex justify-content-center">
+                    {renderStars(newVote)}
+                  </div>
                 </div>
 
                 <div className="d-flex justify-content-evenly">

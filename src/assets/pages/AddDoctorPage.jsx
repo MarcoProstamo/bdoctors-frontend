@@ -43,13 +43,13 @@ export default function AddDoctorPage() {
     <>
       <div className="container my-5">
         <h1 className="text-center my-4 fw-bold">Sei un medico?</h1>
-        <h4 className="text-center my-5">
+        <h4 className="text-center my-4">
           Registrati gratuitamente e raggiungi nuovi pazienti!
         </h4>
 
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 text-center">
-          <div className="col  ">
-            <div className=" p-4 border bg-white rounded">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 text-center mt-3">
+          <div className="col">
+            <div className=" p-4 border bg-white rounded h-100">
               {/* <p>
               <i className="fa-solid fa-globe fa-2x"></i>
             </p> */}
@@ -60,7 +60,7 @@ export default function AddDoctorPage() {
                 className="mb-4"
               />
               <h6 className="fw-bolder">Aumenta la tua visibilità online</h6>
-              <p className="fw-light">
+              <p className="fw-normal">
                 Fatti trovare facilmente dai pazienti nella tua area grazie a un
                 profilo professionale completo e ottimizzato. Connettiti con chi
                 ha bisogno delle tue competenze, ovunque tu sia.
@@ -69,7 +69,7 @@ export default function AddDoctorPage() {
           </div>
 
           <div className="col ">
-            <div className="p-4 border  bg-white rounded">
+            <div className="p-4 border  bg-white rounded h-100">
               {/* <p>
               <i className="fa-solid fa-calendar-check fa-2x"></i>
             </p> */}
@@ -80,7 +80,7 @@ export default function AddDoctorPage() {
                 className="mb-4"
               />
               <h6 className="fw-bolder">Agenda sempre piena e organizzata</h6>
-              <p className="fw-light">
+              <p className="fw-normal">
                 Ricevi nuove richieste di appuntamento direttamente online e
                 gestisci la tua agenda con facilità, risparmiando tempo e
                 aumentando la tua efficienza.
@@ -89,7 +89,7 @@ export default function AddDoctorPage() {
           </div>
 
           <div className="col ">
-            <div className="p-4 border  bg-white rounded">
+            <div className="p-4 border  bg-white rounded h-100">
               {/* <p>
               <i className=" fa-solid fa-star fa-2x"></i>
             </p> */}
@@ -100,7 +100,7 @@ export default function AddDoctorPage() {
                 className="mb-4"
               />
               <h6 className="fw-bolder">Costruisci fiducia e credibilità</h6>
-              <p className="fw-light">
+              <p className="fw-normal">
                 Mostra le tue qualifiche, recensioni dei pazienti e i tuoi
                 servizi per consolidare la tua reputazione e attrarre più
                 pazienti in cerca di esperti affidabili.
@@ -109,7 +109,7 @@ export default function AddDoctorPage() {
           </div>
 
           <div className="col ">
-            <div className="p-4 border  bg-white rounded">
+            <div className="p-4 border  bg-white rounded h-100">
               {/* <p>
               <i className=" fa-solid fa-star fa-2x"></i>
             </p> */}
@@ -120,7 +120,7 @@ export default function AddDoctorPage() {
                 className="mb-4"
               />
               <h6 className="fw-bolder">Comunicazione facile e immediata</h6>
-              <p className="fw-light">
+              <p className="fw-normal">
                 Interagisci con i tuoi pazienti tramite chat o videochiamate,
                 offrendo consulenze rapide e sicure direttamente online.
               </p>
@@ -130,22 +130,26 @@ export default function AddDoctorPage() {
       </div>
 
       <div className="container-fluid py-4 bar-numbers">
-        <div className="row text-center my-3">
-          <div className="col-md-4">
-            <span className="fw-bold fs-1 text-secondary">
-              oltre <span className="text-secondary">20 mila</span>
-            </span>
-            <p>Prenotazioni ogni mese</p>
-          </div>
-          <div className="col-md-4">
-            <span className="fw-bold fs-1 text-secondary">
-              più di <span className="text-secondary">2 milioni</span>
-            </span>
-            <p>Visitatori unici mensili</p>
-          </div>
-          <div className="col-md-4">
-            <span className="fw-bold fs-1 text-secondary">1.306.204</span>
-            <p>Utenti soddisfatti iscritti</p>
+        <div className="container">
+          <div className="row text-center my-3">
+            <div className="col-md-4">
+              <span className="fw-semibold fs-2 text-secondary">
+                oltre{" "}
+                <span className="fs-1 fw-bold text-secondary">20 mila</span>
+              </span>
+              <p>Prenotazioni ogni mese</p>
+            </div>
+            <div className="col-md-4">
+              <span className="fw-semibold fs-2 text-secondary">
+                più di{" "}
+                <span className="fs-1 fw-bold text-secondary">2 milioni</span>
+              </span>
+              <p>Visitatori unici mensili</p>
+            </div>
+            <div className="col-md-4">
+              <span className="fw-bold fs-1 text-secondary">1.306.204</span>
+              <p>Utenti soddisfatti iscritti</p>
+            </div>
           </div>
         </div>
       </div>

@@ -16,9 +16,6 @@ body {
   font-style: normal;
 }
 
-.doc-search-form {
-  flex-basis: 70%;
-}
 
 .star-rating {
   color: gold;
@@ -26,6 +23,10 @@ body {
 }
 
 /* # Advanced Search Page */
+
+.doc-search-form {
+  flex-basis: 80%;
+}
 
 .filter-form {
   background-color: var(--primary-color);
@@ -38,6 +39,16 @@ body {
 .filter-btn:hover {
   color: var(--secondary-color);
   scale: 1.05;
+}
+
+.filter-section {
+  overflow-y: scroll;
+  max-height: 300px;
+  scrollbar-width: none;
+}
+
+.filter-section::-webkit-scrollbar {
+  display: none;
 }
 
 .text-col {

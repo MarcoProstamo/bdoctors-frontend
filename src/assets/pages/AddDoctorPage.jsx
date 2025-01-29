@@ -42,48 +42,118 @@ export default function AddDoctorPage() {
   return (
     <>
       <div className="container my-5">
-        <h1 className="text-center my-5">Sei un medico?</h1>
+        <h1 className="text-center my-4 fw-bold">Sei un medico?</h1>
         <h4 className="text-center my-5">
-          Registrati gratuitamente e raggiungi nuovi pazienti:
+          Registrati gratuitamente e raggiungi nuovi pazienti!
         </h4>
 
-        <div className="row text-center gap-3 justify-content-center">
-          <div className="col-lg-3 col-sm-12 border p-4 bg-white shadow">
-            <p>
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 text-center">
+          <div className="col  ">
+            <div className=" p-4 border bg-white rounded">
+              {/* <p>
               <i className="fa-solid fa-globe fa-2x"></i>
-            </p>
-            <p className="fw-bolder">Aumenta la tua visibilità online</p>
-            <p className="fw-light">
-              Fatti trovare facilmente dai pazienti nella tua area grazie a un
-              profilo professionale completo e ottimizzato. Connettiti con chi
-              ha bisogno delle tue competenze, ovunque tu sia.
-            </p>
+            </p> */}
+              <img
+                src="https://www.idoctors.it/images/frontend/consultazione-sito.svg?v=2"
+                alt=""
+                width={100}
+                className="mb-4"
+              />
+              <h6 className="fw-bolder">Aumenta la tua visibilità online</h6>
+              <p className="fw-light">
+                Fatti trovare facilmente dai pazienti nella tua area grazie a un
+                profilo professionale completo e ottimizzato. Connettiti con chi
+                ha bisogno delle tue competenze, ovunque tu sia.
+              </p>
+            </div>
           </div>
-          <div className="col-lg-3 col-sm-12 border p-4 bg-white shadow">
-            <p>
+
+          <div className="col ">
+            <div className="p-4 border  bg-white rounded">
+              {/* <p>
               <i className="fa-solid fa-calendar-check fa-2x"></i>
-            </p>
-            <p className="fw-bolder">Agenda sempre piena e organizzata</p>
-            <p className="fw-light">
-              Ricevi nuove richieste di appuntamento direttamente online e
-              gestisci la tua agenda con facilità, risparmiando tempo e
-              aumentando la tua efficienza.
-            </p>
+            </p> */}
+              <img
+                src="https://www.idoctors.it/images/frontend/prenotazione-online.svg?v=2"
+                alt=""
+                width={100}
+                className="mb-4"
+              />
+              <h6 className="fw-bolder">Agenda sempre piena e organizzata</h6>
+              <p className="fw-light">
+                Ricevi nuove richieste di appuntamento direttamente online e
+                gestisci la tua agenda con facilità, risparmiando tempo e
+                aumentando la tua efficienza.
+              </p>
+            </div>
           </div>
-          <div className="col-lg-3 col-sm-12 border p-4 bg-white shadow">
-            <p>
+
+          <div className="col ">
+            <div className="p-4 border  bg-white rounded">
+              {/* <p>
               <i className=" fa-solid fa-star fa-2x"></i>
-            </p>
-            <p className="fw-bolder">Costruisci fiducia e credibilità</p>
-            <p className="fw-light">
-              Mostra le tue qualifiche, recensioni dei pazienti e i tuoi servizi
-              per consolidare la tua reputazione e attrarre più pazienti in
-              cerca di esperti affidabili.
-            </p>
+            </p> */}
+              <img
+                src="https://www.idoctors.it/images/frontend/medico-e-paziente.svg?v=2"
+                alt=""
+                width={100}
+                className="mb-4"
+              />
+              <h6 className="fw-bolder">Costruisci fiducia e credibilità</h6>
+              <p className="fw-light">
+                Mostra le tue qualifiche, recensioni dei pazienti e i tuoi
+                servizi per consolidare la tua reputazione e attrarre più
+                pazienti in cerca di esperti affidabili.
+              </p>
+            </div>
+          </div>
+
+          <div className="col ">
+            <div className="p-4 border  bg-white rounded">
+              {/* <p>
+              <i className=" fa-solid fa-star fa-2x"></i>
+            </p> */}
+              <img
+                src="https://www.idoctors.it/images/illu_slide_home.svg?v=2"
+                alt=""
+                width={100}
+                className="mb-4"
+              />
+              <h6 className="fw-bolder">Comunicazione facile e immediata</h6>
+              <p className="fw-light">
+                Interagisci con i tuoi pazienti tramite chat o videochiamate,
+                offrendo consulenze rapide e sicure direttamente online.
+              </p>
+            </div>
           </div>
         </div>
+      </div>
 
-        <h4 className="text-center my-5">Compila il form qui sotto:</h4>
+      <div className="container-fluid py-4 bar-numbers">
+        <div className="row text-center my-3">
+          <div className="col-md-4">
+            <span className="fw-bold fs-1 text-secondary">
+              oltre <span className="text-secondary">20 mila</span>
+            </span>
+            <p>Prenotazioni ogni mese</p>
+          </div>
+          <div className="col-md-4">
+            <span className="fw-bold fs-1 text-secondary">
+              più di <span className="text-secondary">2 milioni</span>
+            </span>
+            <p>Visitatori unici mensili</p>
+          </div>
+          <div className="col-md-4">
+            <span className="fw-bold fs-1 text-secondary">1.306.204</span>
+            <p>Utenti soddisfatti iscritti</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container my-5">
+        <h3 className="text-center my-5 fw-semibold">
+          Compila il form qui sotto:
+        </h3>
         <section className=" mt-5 p-5 border shadow bg-white">
           <div>
             <FormDoctor onSubmit={handleDoctorRegistration} />

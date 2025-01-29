@@ -153,6 +153,7 @@ export default function FormDoctor({ onSubmit }) {
           name="specialization_id"
           value={formData.specialization_id}
           onChange={handleFormData}
+          // size="5"
         >
           <option defaultValue disabled value="">
             Scegli...

@@ -132,15 +132,15 @@ export default function AdvanceDoctorSearchPage() {
 
       <div className="container mb-5 mt-5">
         <div className="mt-4 d-flex justify-content-between mb-2">
-          <div className="d-flex align-items-center">
-            <h2 className="fw-bold mb-0 me-4 text-col">
+          <div className="d-flex align-items-center gap-2 flex-wrap">
+            <h2 className="fw-bold mb-0 text-col">
               <i className="fa-solid fa-user-doctor me-3 filter-icons-tag"></i>
               Lista dei Medici
             </h2>
 
             {filter.specialization ? (
               <div>
-                <span className="badge bg-light filter-icons-tag fs-6">
+                <span className="badge bg-light filter-icons-tag fs-6 icon-badge">
                   <i
                     className={`filter-icons-tag fas ${
                       icon && icon.icon_tag

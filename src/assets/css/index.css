@@ -15,11 +15,11 @@ body {
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
+  background-color: var(--bg-color);
 }
 
 .wrapper {
   min-height: 100vh;
-  background-color: var(--bg-color);
 }
 
 .star-rating {
@@ -152,8 +152,10 @@ body {
 
 /* ! < 600px */
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 633px) {
   .docs-card {
     margin: 1rem 2rem;
   }
 }
+
+

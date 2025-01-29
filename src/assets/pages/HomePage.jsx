@@ -141,27 +141,36 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="container container-speccializzazioni-homepage pt-5 px-4 mt-4">
-        <div className="text-center pt-2 ">
-          <h2>
-            <strong>
-              Cerca un dottore online tra i centinaia di specialisti
-            </strong>
-          </h2>
-          <div className="pt-5 ">
-            <p>
+      <div className="container-homepage-info">
+        <div className="section-homepage">
+          <div className="image-container-homepage">
+            <img
+              src="https://www.idoctors.it/images/frontend/medico-vertical.svg"
+              alt="Dottore online"
+            />
+          </div>
+          <div className="content-homepage-info">
+            <h2 className="title-homepage">
+              Cerca un dottore online tra centinaia di specialisti
+            </h2>
+            <p className="paragrafo-homepage">
               Su <strong>Bdoctors.it</strong> trovi i migliori professionisti in
-              ogni ambito medico, pronti a offrirti consulenze rapide e sicure
-              ovunque tu sia. Che tu abbia bisogno di una Televisita o di un
-              secondo parere su una diagnosi, puoi contare sui nostri medici di
-              fiducia per ricevere risposte tempestive e affidabili.
-              Selezioniamo con cura ogni specialista per garantirti competenza,
-              professionalità e un servizio di alta qualità. Grazie alla nostra
-              piattaforma intuitiva, prenotare una consulenza è semplice e
-              veloce, senza lunghe attese. Qualunque sia la tua necessità, su
-              <strong> Bdoctors.it</strong> troverai sempre un medico pronto ad
-              aiutarti con discrezione e attenzione.
+              ogni ambito medico. Se hai bisogno di una{" "}
+              <strong>Televisita</strong> o desideri un{" "}
+              <strong>secondo parere</strong>, puoi contare sui nostri medici
+              per consulenze rapide e sicure.
             </p>
+            <ul className="lista-homepage">
+              <li className="lista-punti-homepage">
+                Specialisti altamente selezionati
+              </li>
+              <li className="lista-punti-homepage">
+                Consulenze online rapide e sicure
+              </li>
+              <li className="lista-punti-homepage">
+                Prenotazioni semplici e veloci
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -212,33 +221,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="container container-speccializzazioni-homepage">
-        <div className="row">
-          <div className="col-12 col-md-4 ">
-            <div>
-              <img
-                src="https://www.idoctors.it/images/frontend/commenti_diconodinoi.svg?v=2"
-                alt="lavora con noi"
-                className="img-fluid ml-auto mt-auto"
-              />
-            </div>
+      <div class="container-homepage-info">
+        <div class="section-homepage reverse-homepage">
+          <div class="image-container-homepage">
+            <img
+              src="https://www.idoctors.it/images/frontend/commenti_diconodinoi.svg?v=2"
+              alt="Recensioni pazienti"
+            />
           </div>
-          <div className="col-12 col-md-8">
-            <div className="text-center text-md-left">
-              <h2>
-                <strong>Dicono di noi</strong>
-              </h2>
-              <p>
-                Chi ha scelto Bdoctors.it apprezza la qualità del servizio, la
-                professionalità dei medici e la comodità di poter ricevere un
-                consulto senza spostarsi da casa. Le recensioni dei nostri
-                utenti parlano di esperienze positive, diagnosi precise e
-                risposte rapide ai loro dubbi. Grazie alla nostra rete di
-                specialisti qualificati, offriamo un servizio affidabile che
-                mette al centro il benessere del paziente. La soddisfazione di
-                chi si affida a noi è la nostra migliore garanzia.
-              </p>
-            </div>
+          <div class="content-homepage">
+            <h2 className="title-homepage">Dicono di noi</h2>
+            <p className="paragrafo-homepage">
+              Chi sceglie <strong>Bdoctors.it</strong> apprezza la qualità e
+              l’affidabilità del nostro servizio. Le testimonianze dei nostri
+              utenti parlano chiaro: medici competenti, prenotazioni rapide e
+              assistenza eccellente.
+            </p>
+            <ul className="lista-homepage">
+              <li className="lista-punti-homepage">
+                Più di <strong>2 milioni</strong> di utenti soddisfatti
+              </li>
+              <li className="lista-punti-homepage">
+                Feedback positivi sulla nostra piattaforma
+              </li>
+              <li className="lista-punti-homepage">
+                Servizio attento e professionale
+              </li>
+            </ul>
           </div>
         </div>
       </div>

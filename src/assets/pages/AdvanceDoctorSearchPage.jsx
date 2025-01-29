@@ -67,7 +67,7 @@ export default function AdvanceDoctorSearchPage() {
       <section className="filter-form pt-5 pb-4">
         <div className="container">
           <h1 className="fw-bold text-col">
-            <i className="fa-solid fa-magnifying-glass me-3"></i>
+            <i className="fa-solid fa-magnifying-glass me-3 filter-icons-tag"></i>
             Ricerca Avanzata
           </h1>
 
@@ -103,7 +103,7 @@ export default function AdvanceDoctorSearchPage() {
               </div>
 
               {/* filter specialization */}
-              <div className="d-flex flex-wrap justify-content-center gap-2">
+              <div className="d-flex flex-wrap justify-content-center gap-2 filter-section">
                 {icons &&
                   icons.map((icon) => {
                     return (
@@ -127,7 +127,7 @@ export default function AdvanceDoctorSearchPage() {
         </div>
       </section>
 
-      <div className="container mb-5">
+      <div className="container mb-5 mt-5">
         <div className="mt-4 d-flex justify-content-between mb-2">
           <div className="d-flex align-items-center">
             <h2 className="fw-bold mb-0 me-4 text-col">
@@ -158,7 +158,7 @@ export default function AdvanceDoctorSearchPage() {
 
         <hr className="m-0 mb-3" />
 
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 g-4">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 g-4 pb-5">
           {filteredDocs &&
             filteredDocs.length > 0 &&
             filteredDocs.map((doc) => {

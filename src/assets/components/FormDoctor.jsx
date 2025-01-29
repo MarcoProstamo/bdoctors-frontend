@@ -142,7 +142,7 @@ export default function FormDoctor({ onSubmit }) {
         <div className="invalid-feedback">Campo obbligatorio</div>
       </div>
 
-      <div className="col-md-6">
+      <div className="col-md-12">
         <label htmlFor="inputSpecialization" className="form-label fw-medium">
           Specializzazione
         </label>
@@ -153,10 +153,10 @@ export default function FormDoctor({ onSubmit }) {
           name="specialization_id"
           value={formData.specialization_id}
           onChange={handleFormData}
-          // size="5"
+          // size="8"
         >
           <option defaultValue disabled value="">
-            Scegli...
+            Seleziona...
           </option>
           {icons &&
             icons.map(({ id, specialization }) => (
@@ -174,7 +174,7 @@ export default function FormDoctor({ onSubmit }) {
           type="submit"
           className="btn btn-primary mt-3 w-100 h-100 fw-bold"
         >
-          Registrati
+          Invia
         </button>
       </div>
     </form>

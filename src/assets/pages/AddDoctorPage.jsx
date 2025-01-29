@@ -49,14 +49,14 @@ export default function AddDoctorPage() {
 
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 text-center mt-3">
           <div className="col">
-            <div className=" p-4 border bg-white rounded h-100">
+            <div className=" p-4 border bg-white rounded h-100 shadow-sm">
               {/* <p>
               <i className="fa-solid fa-globe fa-2x"></i>
             </p> */}
               <img
                 src="https://www.idoctors.it/images/frontend/consultazione-sito.svg?v=2"
                 alt=""
-                width={100}
+                width={150}
                 className="mb-4"
               />
               <h6 className="fw-bolder">Aumenta la tua visibilità online</h6>
@@ -69,14 +69,14 @@ export default function AddDoctorPage() {
           </div>
 
           <div className="col ">
-            <div className="p-4 border  bg-white rounded h-100">
+            <div className="p-4 border  bg-white rounded h-100 shadow-sm">
               {/* <p>
               <i className="fa-solid fa-calendar-check fa-2x"></i>
             </p> */}
               <img
                 src="https://www.idoctors.it/images/frontend/prenotazione-online.svg?v=2"
                 alt=""
-                width={100}
+                width={150}
                 className="mb-4"
               />
               <h6 className="fw-bolder">Agenda sempre piena e organizzata</h6>
@@ -89,14 +89,14 @@ export default function AddDoctorPage() {
           </div>
 
           <div className="col ">
-            <div className="p-4 border  bg-white rounded h-100">
+            <div className="p-4 border  bg-white rounded h-100 shadow-sm">
               {/* <p>
               <i className=" fa-solid fa-star fa-2x"></i>
             </p> */}
               <img
                 src="https://www.idoctors.it/images/frontend/medico-e-paziente.svg?v=2"
                 alt=""
-                width={100}
+                width={150}
                 className="mb-4"
               />
               <h6 className="fw-bolder">Costruisci fiducia e credibilità</h6>
@@ -109,14 +109,14 @@ export default function AddDoctorPage() {
           </div>
 
           <div className="col ">
-            <div className="p-4 border  bg-white rounded h-100">
+            <div className="p-4 border  bg-white rounded h-100 shadow-sm">
               {/* <p>
               <i className=" fa-solid fa-star fa-2x"></i>
             </p> */}
               <img
                 src="https://www.idoctors.it/images/illu_slide_home.svg?v=2"
                 alt=""
-                width={100}
+                width={150}
                 className="mb-4"
               />
               <h6 className="fw-bolder">Comunicazione facile e immediata</h6>
@@ -134,15 +134,15 @@ export default function AddDoctorPage() {
           <div className="row text-center my-3">
             <div className="col-md-4">
               <span className="fw-semibold fs-2 text-secondary">
-                oltre{" "}
-                <span className="fs-1 fw-bold text-secondary">20 mila</span>
+                oltre
+                <span className="fs-1 fw-bold text-secondary"> 20 mila</span>
               </span>
               <p>Prenotazioni ogni mese</p>
             </div>
             <div className="col-md-4">
               <span className="fw-semibold fs-2 text-secondary">
-                più di{" "}
-                <span className="fs-1 fw-bold text-secondary">2 milioni</span>
+                più
+                <span className="fs-1 fw-bold text-secondary"> 2 milioni</span>
               </span>
               <p>Visitatori unici mensili</p>
             </div>
@@ -155,9 +155,9 @@ export default function AddDoctorPage() {
       </div>
 
       <div className="container my-5">
-        <h3 className="text-center my-5 fw-semibold">
-          Compila il form qui sotto:
-        </h3>
+        <h2 className="text-center my-5 fw-semibold">
+          Compila il form per registrarti:
+        </h2>
         <section className=" mt-5 p-5 border shadow bg-white">
           <div>
             <FormDoctor onSubmit={handleDoctorRegistration} />

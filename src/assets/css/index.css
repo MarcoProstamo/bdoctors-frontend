@@ -212,8 +212,8 @@ body {
 /* # REGISTRATION DOCTOR PAGE*/
 
 .bar-numbers {
-  background: #00bcd41a;
-  /* background: var(--primary-color); */
+  /* background: #00bcd41a; */
+  background: var(--primary-color);
 }
 
 /* .scrollable-select {

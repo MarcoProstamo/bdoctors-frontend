@@ -54,33 +54,9 @@ body {
   color: var(--text-color);
 }
 
-/* # Footer */
-
 .wrapper {
   min-height: 100vh;
   background-color: var(--bg-color);
-}
-
-.footer {
-  background-color: #404040;
-  color: #ffffff;
-  height: 100px;
-}
-
-.footer > .container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.left-footer > div {
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
-.footer-right-nav li {
-  display: inline-block;
-  font-size: 1.3rem;
-  margin-left: 10px;
 }
 
 /* # HomePage */

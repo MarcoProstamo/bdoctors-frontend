@@ -153,7 +153,7 @@ export default function DetailDoctorPage() {
       <div className="page-wrapper" style={{ backgroundColor: "#CFFFF6" }}>
         <div className="container py-5">
           <div className="row mb-4 d-flex align-items-stretch">
-            <div className="col-md-6">
+            <div className="col-md-6 col-sm-12">
               <h1 className="mb-4 fs-1 text-dark-emphasis ">
                 Info Dottore
                 <i className="fa-solid fa-circle-info mx-3"></i>
@@ -178,7 +178,7 @@ export default function DetailDoctorPage() {
                       {doctor.name} {doctor.surname}
                     </h3>
 
-                    <p className="badge bg-light filter-icons-tag fs-6">
+                    <p className="badge bg-light filter-icons-tag ">
                       {icon && <i className={`fas ${icon.icon_tag} me-2`}></i>}
                       {doctor.specialization}
                     </p>

@@ -7,6 +7,7 @@
   --bg-color: #fffff7;
 }
 
+
 /* # BODY */
 
 body {
@@ -16,11 +17,17 @@ body {
   font-style: normal;
 }
 
+.wrapper {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+}
 
 .star-rating {
   color: gold;
   font-size: 1rem;
 }
+
+
 
 /* # Advanced Search Page */
 
@@ -55,13 +62,17 @@ body {
   color: var(--text-color);
 }
 
+.docs-card {
+  box-shadow: 6px 6px 8px rgba(138, 198, 245, 0.28);
+}
+
+.docs-card:hover {
+  transform: scale(1.05);
+}
+
 
 /* # Footer */
 
-.wrapper {
-  min-height: 100vh;
-  background-color: var(--bg-color);
-}
 
 .footer {
   background-color: #404040;
@@ -84,6 +95,7 @@ body {
   font-size: 1.3rem;
   margin-left: 10px;
 }
+
 
 /* # HomePage */
 
@@ -149,4 +161,13 @@ body {
 
 .carousel-control-next-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+
+/* ! < 600px */
+
+@media screen and (max-width: 600px) {
+  .docs-card {
+    margin: 1rem 2rem;
+  }
 }

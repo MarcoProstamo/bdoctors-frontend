@@ -107,7 +107,10 @@ export default function AdvanceDoctorSearchPage() {
                 {icons &&
                   icons.map((icon) => {
                     return (
-                      <div className="d-grid col-8 col-md-4 col-lg-3 col-xxl-2">
+                      <div
+                        key={icon.id}
+                        className="d-grid col-8 col-md-4 col-lg-3 col-xxl-2"
+                      >
                         <button
                           className="btn btn-light filter-btn fs-6 text-col"
                           key={icon.id}

@@ -50,7 +50,7 @@ export default function AddDoctorPage() {
           <div className="row row-cols-3 p-2 ">
             <div className="col border p-4 ">
               <p>
-                <i class="fa-solid fa-globe fa-2x"></i>
+                <i className="fa-solid fa-globe fa-2x"></i>
               </p>
               <p className="fw-bolder">Aumenta la tua visibilità online</p>
               <p className="fw-light">
@@ -61,7 +61,7 @@ export default function AddDoctorPage() {
             </div>
             <div className="col border p-4 ">
               <p>
-                <i class="fa-solid fa-calendar-check fa-2x"></i>
+                <i className="fa-solid fa-calendar-check fa-2x"></i>
               </p>
               <p className="fw-bolder">Agenda sempre piena e organizzata</p>
               <p className="fw-light">
@@ -72,7 +72,7 @@ export default function AddDoctorPage() {
             </div>
             <div className="col border p-4 ">
               <p>
-                <i class=" fa-solid fa-star fa-2x"></i>
+                <i className=" fa-solid fa-star fa-2x"></i>
               </p>
               <p className="fw-bolder">Costruisci fiducia e credibilità</p>
               <p className="fw-light">

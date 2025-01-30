@@ -149,7 +149,7 @@ export default function HomePage() {
               alt="Dottore online"
             />
           </div>
-          <div className="content-homepage-info">
+          <div className="content-homepage-info pt-3">
             <h2 className="title-homepage">
               Cerca un dottore online tra centinaia di specialisti
             </h2>
@@ -229,7 +229,7 @@ export default function HomePage() {
               alt="Recensioni pazienti"
             />
           </div>
-          <div class="content-homepage">
+          <div class="content-homepage p-3">
             <h2 className="title-homepage">Dicono di noi</h2>
             <p className="paragrafo-homepage">
               Chi sceglie <strong>Bdoctors.it</strong> apprezza la qualità e

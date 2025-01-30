@@ -112,7 +112,7 @@ export default function AdvanceDoctorSearchPage() {
                         className="d-grid col-8 col-md-4 col-lg-3 col-xxl-2"
                       >
                         <button
-                          className="btn btn-light filter-btn fs-6 text-col"
+                          className={`btn btn-light filter-btn fs-6 text-col`}
                           key={icon.id}
                           onClick={onClickSpecializationFilter}
                         >

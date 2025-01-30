@@ -250,17 +250,19 @@ export default function DetailDoctorPage() {
                 onSubmit={handleReviewSubmit}
                 className="border p-4 rounded-3 shadow-sm bg-light"
               >
-                <div className="mb-3">
+                <div className="form-floating mb-3">
                   <input
                     type="text"
                     className="form-control"
                     value={newName}
                     onChange={(e) => setNewName(e.target.value)}
                     placeholder="Il tuo nome"
+                    id="nameInput"
                   />
+                  <label for="nameInput">Nome</label>
                 </div>
 
-                <div className="mb-3">
+                <div className="form-floating mb-3">
                   <textarea
                     className="form-control"
                     value={newText}
@@ -268,10 +270,11 @@ export default function DetailDoctorPage() {
                     placeholder="Scrivi la tua recensione"
                     rows="4"
                   />
+                  <label for="nameInput">Scrivi la tua Recensione</label>
                 </div>
 
-                <div className="mb-3">
-                  <label className="form-label"></label>
+                <div className="mb-3 text-center">
+                  <label className="form-label m-0">Voto</label>
                   <div className="d-flex justify-content-center">
                     {renderStars(newVote)}
                   </div>

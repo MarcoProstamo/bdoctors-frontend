@@ -1,13 +1,20 @@
-import { useState, useLayoutEffect } from "react";
+import { useState, useLayoutEffect, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useDocContext } from "../contexts/DoctorsContext";
 import DocsCard from "../components/DocsCard";
 
 export default function AdvanceDoctorSearchPage() {
-  const { docs, icons } = useDocContext();
+  const { docs, icons, fetchDocs, fetchIcons } = useDocContext();
 
   const location = useLocation();
   const { specialization } = location.state || "";
+
+  console.log(location.pathname);
+
+  useEffect(() => {
+    fetchDocs();
+    fetchIcons();
+  }, [location.pathname === "/doctors"]);
 
   const [filter, setFilter] = useState({
     searchInput: "",
@@ -20,7 +27,7 @@ export default function AdvanceDoctorSearchPage() {
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

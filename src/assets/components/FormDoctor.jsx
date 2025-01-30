@@ -173,9 +173,9 @@ export default function FormDoctor({ onSubmit }) {
       <div className="col-12 text-center">
         <button
           type="submit"
-          className="btn btn-primary mt-3 w-50 h-100 fw-bolder"
+          className="btn btn-primary mt-3 w-50 h-100 fw-bold font-monospace"
         >
-          Invia
+          INVIA <i class="fa-solid fa-paper-plane"></i>
         </button>
       </div>
     </form>

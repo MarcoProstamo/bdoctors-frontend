@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useState, useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useDocContext } from "../contexts/DoctorsContext";
-
 import DocsCard from "../components/DocsCard";
 
 export default function AdvanceDoctorSearchPage() {
@@ -18,6 +17,10 @@ export default function AdvanceDoctorSearchPage() {
   const handleInputChange = (e) => {
     setFilter({ ...filter, searchInput: e.target.value });
   };
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -168,8 +171,8 @@ export default function AdvanceDoctorSearchPage() {
               return <DocsCard key={doc.id} data={doc} />;
             })}
           {filteredDocs && filteredDocs.length === 0 && (
-            <div className="col-12 text-center fs-4">
-              Nessun Dottore Trovato.
+            <div className="col-12 w-100 flex-grow text-center fs-4">
+              Nessun Dottore Specializzato in questo Campo.
             </div>
           )}
         </div>

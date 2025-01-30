@@ -171,8 +171,8 @@ export default function AdvanceDoctorSearchPage() {
               return <DocsCard key={doc.id} data={doc} />;
             })}
           {filteredDocs && filteredDocs.length === 0 && (
-            <div className="col-12 text-center fs-4">
-              Nessun Dottore Trovato.
+            <div className="col-12 w-100 flex-grow text-center fs-4">
+              Nessun Dottore Specializzato in questo Campo.
             </div>
           )}
         </div>

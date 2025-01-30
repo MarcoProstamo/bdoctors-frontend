@@ -42,10 +42,18 @@ export default function AddDoctorPage() {
   return (
     <>
       <div className="container my-5">
-        <h1 className="text-center my-4 fw-bold">Sei un medico?</h1>
+        <h1 className="text-center my-4 fw-bold">
+          <strong>Sei un medico? </strong>
+        </h1>
         <h4 className="text-center my-4">
           Registrati gratuitamente e raggiungi nuovi pazienti!
         </h4>
+
+        <div className="text-center">
+          <a className="btn btn-primary my-3 " href="#targetSection">
+            Voglio registrarmi ora
+          </a>
+        </div>
 
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 text-center mt-3">
           <div className="col">
@@ -133,31 +141,56 @@ export default function AddDoctorPage() {
         <div className="container">
           <div className="row text-center my-3">
             <div className="col-md-4">
-              <span className="fw-semibold fs-2 text-secondary">
+              <div className="my-1">
+                <p>
+                  <i className="fa-solid fa-calendar-check fa-2x  filter-icons-tag"></i>{" "}
+                </p>
+              </div>
+              <span className="fw-medium fs-2 text-secondary">
                 oltre
-                <span className="fs-1 fw-bold text-secondary"> 20 mila</span>
+                <span className="fs-1 fw-bold text-secondary">
+                  <strong> 20 mila</strong>
+                </span>
               </span>
               <p>Prenotazioni ogni mese</p>
             </div>
             <div className="col-md-4">
-              <span className="fw-semibold fs-2 text-secondary">
+              <div className="my-1">
+                <p>
+                  <i className="fa-solid fa-globe fa-2x filter-icons-tag"></i>
+                </p>
+              </div>
+              <span className="fw-medium fs-2 text-secondary">
                 più
-                <span className="fs-1 fw-bold text-secondary"> 2 milioni</span>
+                <span className="fs-1 fw-bold text-secondary">
+                  <strong> 2 milioni </strong>
+                </span>
               </span>
               <p>Visitatori unici mensili</p>
             </div>
             <div className="col-md-4">
-              <span className="fw-bold fs-1 text-secondary">1.306.204</span>
+              <div className="my-1">
+                <p>
+                  <i class="fa-solid fa-users fa-2x filter-icons-tag"></i>
+                </p>
+              </div>
+              <span className="fw-bold fs-1 text-secondary">
+                <strong> 1.306.204</strong>
+              </span>
               <p>Utenti soddisfatti iscritti</p>
             </div>
           </div>
         </div>
       </div>
 
+      <section id="targetSection"></section>
+
       <div className="container my-5">
-        <h2 className="text-center my-5 fw-semibold">
-          Compila il form per registrarti:
+        <h2 className="text-center my-4 fw-semibold">
+          Unisciti alla community di <strong> BDoctors!</strong>
         </h2>
+        <h4 className="text-center">Compila il form per registrarti:</h4>
+
         <section className=" mt-5 p-5 border shadow bg-white">
           <div>
             <FormDoctor onSubmit={handleDoctorRegistration} />

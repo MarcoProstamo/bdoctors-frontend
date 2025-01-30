@@ -44,12 +44,12 @@ export default function FormDoctor({ onSubmit }) {
 
   return (
     <form
-      className="row g-3 needs-validation"
+      className="row g-4 needs-validation"
       noValidate
       onSubmit={handleFormSubmit}
     >
       <div className="col-md-6">
-        <label htmlFor="inputName" className="form-label fw-medium">
+        <label htmlFor="inputName" className="form-label fw-semibold">
           Nome
         </label>
         <input
@@ -67,7 +67,7 @@ export default function FormDoctor({ onSubmit }) {
       </div>
 
       <div className="col-md-6">
-        <label htmlFor="inputSurname" className="form-label fw-medium">
+        <label htmlFor="inputSurname" className="form-label fw-semibold">
           Cognome
         </label>
         <input
@@ -85,7 +85,7 @@ export default function FormDoctor({ onSubmit }) {
       </div>
 
       <div className="col-md-6">
-        <label htmlFor="inputEmail" className="form-label fw-medium">
+        <label htmlFor="inputEmail" className="form-label fw-semibold">
           Email
         </label>
         <input
@@ -97,13 +97,14 @@ export default function FormDoctor({ onSubmit }) {
           name="email"
           value={formData.email}
           onChange={handleFormData}
+          placeholder="Es. anna.rossi@gmail.com"
         />
         <div className="valid-feedback"></div>
         <div className="invalid-feedback">Campo obbligatorio</div>
       </div>
 
       <div className="col-md-6">
-        <label htmlFor="inputTelephone" className="form-label fw-medium">
+        <label htmlFor="inputTelephone" className="form-label fw-semibold">
           Telefono
         </label>
         <div className="input-group">
@@ -124,14 +125,14 @@ export default function FormDoctor({ onSubmit }) {
       </div>
 
       <div className="col-12">
-        <label htmlFor="inputAddress" className="form-label fw-medium">
+        <label htmlFor="inputAddress" className="form-label fw-semibold">
           Indirizzo / Città / Stato
         </label>
         <input
           type="text"
           className="form-control"
           id="inputAddress"
-          placeholder="Esempio: Via Manzoni 23, Firenze, Italia"
+          placeholder="Es. Via Manzoni 23, Firenze, Italia"
           required
           minLength={5}
           name="address"
@@ -143,7 +144,7 @@ export default function FormDoctor({ onSubmit }) {
       </div>
 
       <div className="col-md-12">
-        <label htmlFor="inputSpecialization" className="form-label fw-medium">
+        <label htmlFor="inputSpecialization" className="form-label fw-semibold">
           Specializzazione
         </label>
         <select
@@ -172,9 +173,9 @@ export default function FormDoctor({ onSubmit }) {
       <div className="col-12 text-center">
         <button
           type="submit"
-          className="btn btn-primary mt-3 w-100 h-100 fw-bold"
+          className="btn btn-primary mt-3 w-50 h-100 fw-bold font-monospace"
         >
-          Invia
+          INVIA <i class="fa-solid fa-paper-plane"></i>
         </button>
       </div>
     </form>

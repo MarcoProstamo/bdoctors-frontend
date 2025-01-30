@@ -79,7 +79,7 @@ export default function AdvanceDoctorSearchPage() {
     <>
       <section className="filter-form pt-5 pb-4">
         <div className="container">
-          <h1 className="fw-bold text-color border-section">
+          <h1 className="fw-bold border-section">
             <i className="fa-solid fa-magnifying-glass me-3 filter-icons-tag"></i>
             Ricerca Avanzata
           </h1>
@@ -91,10 +91,7 @@ export default function AdvanceDoctorSearchPage() {
                 className="doc-search-form text-center"
                 onSubmit={handleSubmit}
               >
-                <label
-                  htmlFor="searchInput"
-                  className="form-label fs-5 text-color"
-                >
+                <label htmlFor="searchInput" className="form-label fs-5">
                   Filtra per Nome o Cognome
                 </label>
                 <input
@@ -109,7 +106,7 @@ export default function AdvanceDoctorSearchPage() {
             </div>
 
             <div className="my-4">
-              <div className="text-center fs-5 mb-3 text-color">
+              <div className="text-center fs-5 mb-3">
                 Filtra per Specializazzione
               </div>
 
@@ -149,7 +146,7 @@ export default function AdvanceDoctorSearchPage() {
       <div className="container mb-5 mt-5">
         <div className="mt-4 d-flex justify-content-between mb-3 border-section">
           <div className="d-flex align-items-center gap-2 flex-wrap">
-            <h2 className="fw-bold mb-0 text-color">
+            <h2 className="fw-bold mb-0">
               <i className="fa-solid fa-user-doctor me-3 filter-icons-tag"></i>
               Lista dei Medici
             </h2>

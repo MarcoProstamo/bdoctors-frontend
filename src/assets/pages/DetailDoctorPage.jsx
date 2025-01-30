@@ -12,6 +12,7 @@ export default function DetailDoctorPage() {
   const [newText, setNewText] = useState("");
   const [newName, setNewName] = useState("");
   const [newVote, setNewVote] = useState(0);
+  const [avg_vote, setAvg_vote] = useState(doctor?.avg_vote);
 
   const { icons } = useDocContext();
 
@@ -19,13 +20,9 @@ export default function DetailDoctorPage() {
     const url = import.meta.env.VITE_API_INDEX + "/" + doctorId;
 
     fetch(url)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data) => {
+        setAvg_vote(data.avg_vote);
         setDoctor(data);
         setReviews(data.reviews || []);
         setLoading(false);
@@ -73,6 +70,7 @@ export default function DetailDoctorPage() {
           .then((res) => res.json())
           .then((data) => {
             setReviews(data.reviews || []);
+            setAvg_vote(data.avg_vote);
             setNewText("");
             setNewName("");
             setNewVote(0);
@@ -142,7 +140,7 @@ export default function DetailDoctorPage() {
   );
 
   const doctorImagePath =
-    "http://localhost:3000" + "/doctor_images/imageDoc_" + doctorId + ".png";
+    import.meta.env.VITE_API_IMG + `${doctor.image}` + ".png";
 
   return (
     <div>
@@ -192,7 +190,7 @@ export default function DetailDoctorPage() {
                   </p>
                   <p>
                     <strong>Media Voti:</strong>
-                    {renderStars(Math.round(doctor.avg_vote))}
+                    {renderStars(Math.round(avg_vote))}
                   </p>
                 </div>
               </div>
@@ -255,7 +253,7 @@ export default function DetailDoctorPage() {
                     placeholder="Il tuo nome"
                     id="nameInput"
                   />
-                  <label for="nameInput">Nome</label>
+                  <label htmlFor="nameInput">Nome</label>
                 </div>
 
                 <div className="form-floating mb-3">
@@ -266,7 +264,7 @@ export default function DetailDoctorPage() {
                     placeholder="Scrivi la tua recensione"
                     rows="4"
                   />
-                  <label for="nameInput">Scrivi la tua Recensione</label>
+                  <label htmlFor="nameInput">Scrivi la tua Recensione</label>
                 </div>
 
                 <div className="mb-3 text-center">

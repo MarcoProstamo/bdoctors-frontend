@@ -43,12 +43,8 @@ export default function DetailDoctorPage() {
       alert("Per favore, inserisci il tuo nome.");
       return;
     }
-    if (!newText.trim()) {
-      alert("Per favore, scrivi una recensione.");
-      return;
-    }
-    if (newVote <= 0 || newVote > 5) {
-      alert("Per favore, inserisci un voto tra 1 e 5.");
+    if (newVote < 0 || newVote > 5) {
+      alert("Per favore, inserisci un voto tra 0 e 5.");
       return;
     }
 

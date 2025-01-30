@@ -28,6 +28,11 @@ body {
 
 /* # Advanced Search Page */
 
+.border-section {
+  border-bottom: 1px solid var(--text-color);
+  padding-bottom: 10px;
+}
+
 .doc-search-form {
   flex-basis: 80%;
 }
@@ -40,9 +45,29 @@ body {
   color: var(--secondary-color);
 }
 
-.filter-btn:hover {
+.filter-btn {
   color: var(--secondary-color);
-  scale: 1.05;
+  background-color: var(--bg-color);
+  font-weight: 600;
+}
+
+.filter-btn-active{
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.filter-btn:hover, .filter-btn-active:hover {
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  font-weight: 600;
+  scale: 1.02;
+}
+
+.reset-filters-btn {
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  font-weight: 500;
 }
 
 .filter-section {
@@ -55,8 +80,12 @@ body {
   display: none;
 }
 
-.text-col {
+.text-color {
   color: var(--text-color);
+}
+
+.sec-bg-color {
+  background-color: var(--secondary-color);
 }
 
 .docs-card {
@@ -244,7 +273,7 @@ body {
   cursor: pointer;
 }
 
-/* ! < 600px */
+/* ! < 633px */
 
 @media screen and (max-width: 633px) {
   .docs-card {

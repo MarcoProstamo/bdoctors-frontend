@@ -8,6 +8,7 @@ export const useDocContext = () => useContext(DocContext);
 export const DoctorContextProvider = ({ children }) => {
   const INDEX_DOCTORS = import.meta.env.VITE_API_INDEX;
   const INDEX_ICONS = import.meta.env.VITE_API_INDEX_SPECIALIZATIONS;
+
   function fetchDocs() {
     fetch(INDEX_DOCTORS)
       .then((res) => res.json())
@@ -33,6 +34,8 @@ export const DoctorContextProvider = ({ children }) => {
   const [docsData, setDocsData] = useState({
     docs: [],
     icons: [],
+    fetchDocs,
+    fetchIcons,
   });
 
   useEffect(() => {

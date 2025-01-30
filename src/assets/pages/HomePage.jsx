@@ -24,82 +24,26 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="container my-3 py-3 px-4">
-        <h2 className="text-center py-5  px-4">
-          <strong> I nostri migliori dottori </strong>
-        </h2>
-        <div className="d-flex justify-content-center">
-          <div
-            id="carouselExampleAutoplaying"
-            className="carousel slide w-50"
-            data-bs-ride="carousel"
-          >
-            <div className="carousel-inner">
-              {mostRatedDocs &&
-                mostRatedDocs.map((doc, index) => (
-                  <Link
-                    to={`/doctors/${doc.id}`}
-                    state={doc.specialization}
-                    key={doc.id}
-                    className={`text-decoration-none carousel-item ${
-                      index === 0 ? "active" : ""
-                    } card p-4 shadow-sm rounded-4 bg-light`}
-                  >
-                    <div className="d-flex flex-column justify-content-center align-items-center mb-3">
-                      <img
-                        src={API_IMG + doc.image + ".png"}
-                        className="img-thumbnail me-3 rounded-circle shadow-lg"
-                        style={{
-                          width: "150px",
-                          height: "150px",
-                          objectFit: "cover",
-                        }}
-                        alt={`Foto di ${doc.name} ${doc.surname}`}
-                      />
-                      <div>
-                        <h3 className="card-title mb-0 fs-3 text-dark">
-                          {doc.name} {doc.surname}
-                        </h3>
-                        <p className="fs-5 text-muted">{doc.specialization}</p>
-                      </div>
-
-                      <div className="text-warning fs-3">
-                        {voteStarsFormatter(doc.avg_vote)}
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-            </div>
-            <button
-              className="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleAutoplaying"
-              data-bs-slide="prev"
-            >
-              <span
-                className="carousel-control-prev-icon text-primary"
-                aria-hidden="true"
-              ></span>
-              <span className="visually-hidden">Previous</span>
-            </button>
-            <button
-              className="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleAutoplaying"
-              data-bs-slide="next"
-            >
-              <span
-                className="carousel-control-next-icon text-primary"
-                aria-hidden="true"
-              ></span>
-              <span className="visually-hidden">Next</span>
-            </button>
-          </div>
+      <div className="container-hp">
+        <div className="container-imp-hp">
+          <h1 className="title-card-principale">
+            <strong>BDoctors</strong>
+          </h1>
+          <h3 className="sottotitolo-card-principale">
+            <strong> Trova il tuo medico online in pochi click!</strong>
+          </h3>
+          <p className="paragrafo-card-principale">
+            Hai bisogno di una visita medica senza lunghe attese? Con la nostra
+            piattaforma, puoi trovare i migliori dottori online, consultare le
+            loro specializzazioni, leggere le recensioni dei pazienti e
+            prenotare un appuntamento in pochi secondi. La salute è a portata di
+            click!
+          </p>
         </div>
       </div>
 
       <h1 className="text-center pt-5 px-3">
-        <b>
+        <b className="title-spec">
           <strong>Cerca per specializzazione</strong>
         </b>
       </h1>
@@ -248,6 +192,97 @@ export default function HomePage() {
                 Servizio attento e professionale
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="container-homepage my-4 py-2 px-2">
+        <h1 className="text-center py-5 px-4">
+          <strong> I nostri migliori dottori </strong>
+        </h1>
+
+        <div className="d-flex justify-content-center">
+          <div
+            id="carouselExampleAutoplaying"
+            className="carousel slide w-75"
+            data-bs-ride="carousel"
+          >
+            <div className="carousel-inner">
+              {mostRatedDocs &&
+                mostRatedDocs
+                  .reduce((acc, doc, index) => {
+                    if (index % 2 === 0) acc.push([doc]);
+                    else acc[acc.length - 1].push(doc);
+                    return acc;
+                  }, [])
+                  .map((pair, index) => (
+                    <div
+                      key={index}
+                      className={`carousel-item ${index === 0 ? "active" : ""}`}
+                    >
+                      <div className="row">
+                        {pair.map((doc) => (
+                          <div key={doc.id} className="col-md-6">
+                            <Link
+                              to={`/doctors/${doc.id}`}
+                              state={doc.specialization}
+                              className="text-decoration-none card p-4 shadow-sm rounded-4 bg-light"
+                            >
+                              <div className="d-flex flex-column justify-content-center align-items-center mb-3">
+                                <img
+                                  src={API_IMG + doc.image + ".png"}
+                                  className="img-thumbnail me-3 rounded-circle shadow-lg"
+                                  style={{
+                                    width: "150px",
+                                    height: "150px",
+                                    objectFit: "cover",
+                                  }}
+                                  alt={`Foto di ${doc.name} ${doc.surname}`}
+                                />
+                                <div>
+                                  <h3 className="card-title mb-0 fs-3 text-dark">
+                                    {doc.name} {doc.surname}
+                                  </h3>
+                                  <p className="fs-5 text-muted">
+                                    {doc.specialization}
+                                  </p>
+                                </div>
+                                <div className="text-warning fs-3">
+                                  {voteStarsFormatter(doc.avg_vote)}
+                                </div>
+                              </div>
+                            </Link>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+            </div>
+
+            <button
+              className="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleAutoplaying"
+              data-bs-slide="prev"
+            >
+              <span
+                className="carousel-control-prev-icon text-primary"
+                aria-hidden="true"
+              ></span>
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button
+              className="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleAutoplaying"
+              data-bs-slide="next"
+            >
+              <span
+                className="carousel-control-next-icon text-primary"
+                aria-hidden="true"
+              ></span>
+              <span className="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
       </div>

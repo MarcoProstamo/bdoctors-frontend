@@ -69,6 +69,35 @@ body {
 
 /* # HomePage */
 
+.container-hp {
+  background-size: cover;
+  background-image: url(https://img.freepik.com/premium-vector/green-gold-glitter-alcohol-ink-marble-hand-painted-watercolor-background_515770-194.jpg?w=900);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  width: 88rem;
+  height: 35rem;
+}
+.container-imp-hp {
+  text-align: center;
+}
+
+.title-card-principale {
+  margin-top: 8px;
+  font-size: 7rem;
+  padding: 50px;
+}
+
+.sottotitolo-card-principale {
+  margin-top: 12px;
+  font-size: 3rem;
+}
+
+.paragrafo-card-principale {
+  margin-top: 12px;
+  font-size: 2rem;
+  padding: 30px;
+}
 .carousel-inner-homepage img {
   margin-bottom: 15px;
   max-height: 561px;
@@ -77,19 +106,26 @@ body {
   background-color: #cffff6;
 }
 
+.title-spec {
+  font-size: 4rem;
+}
 .container-homepage-info {
   max-width: 1100px;
   margin: 21px auto;
   padding: 20px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #cffff6;
+  border-radius: 1rem;
 }
 
 .section-homepage {
   display: flex;
   align-items: center;
-  gap: 30px;
-  margin-bottom: 60px;
+  gap: 60px;
   background-color: #cffff6;
   border-radius: 1rem;
+  margin-left: 77px;
+  height: 324px;
 }
 
 .image-container-homepage img {
@@ -125,22 +161,6 @@ body {
 
 .reverse-homepage {
   flex-direction: row-reverse;
-}
-
-/* Responsività per schermi più piccoli */
-@media (max-width: 768px) {
-  .section-homepage {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .reverse-homepage {
-    flex-direction: column;
-  }
-
-  .image-container-homepage img {
-    max-width: 100%;
-  }
 }
 
 .cards-container-homepage {
@@ -187,6 +207,29 @@ body {
 
 .carousel-control-next-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5% !important;
+  height: auto;
+  background-size: contain;
+}
+
+/* Responsività per schermi più piccoli */
+@media (max-width: 768px) {
+  .section-homepage {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .reverse-homepage {
+    flex-direction: column;
+  }
+
+  .image-container-homepage img {
+    max-width: 100%;
+  }
 }
 
 /* # Navbar */

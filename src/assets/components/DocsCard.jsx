@@ -31,7 +31,7 @@ export default function DocsCard({ data }) {
             alt="..."
           />
           <div className="card-body">
-            <h5 className="card-title fw-bold text-center text-col">
+            <h5 className="card-title fw-bold text-center text-color">
               {data.name} {data.surname}
             </h5>
 

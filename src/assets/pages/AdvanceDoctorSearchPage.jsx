@@ -84,7 +84,7 @@ export default function AdvanceDoctorSearchPage() {
             Ricerca Avanzata
           </h1>
 
-          <div>
+          <div className="mt-4">
             {/* Form Cerca per Nome o Cognome */}
             <div className="d-flex justify-content-center">
               <form

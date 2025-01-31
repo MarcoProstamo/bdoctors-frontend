@@ -77,12 +77,12 @@ body {
 
 .filter-section {
   overflow-y: scroll;
+  scrollbar-width: thin;
   max-height: 160px;
-  scrollbar-width: none;
 }
 
 .filter-section::-webkit-scrollbar {
-  display: none;
+  display: thin;
 }
 
 .text-color {

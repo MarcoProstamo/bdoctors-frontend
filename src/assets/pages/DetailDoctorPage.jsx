@@ -148,15 +148,12 @@ export default function DetailDoctorPage() {
     <div>
       <div className="page-wrapper" style={{ backgroundColor: "#CFFFF6" }}>
         <div className="container py-5">
-          <button
-            onClick={() => navigate(-1)}
-            className="btn btn-secondary mb-5"
-          >
+          <button onClick={() => navigate(-1)} className="btn btn-primary mb-5">
             ← Torna Indietro
           </button>
           <div className="row mb-4 d-flex align-items-stretch">
             <div className="col-md-6 col-sm-12 mb-4">
-              <h1 className="mb-4 fs-1 text-dark-emphasis text-center ">
+              <h1 className="mb-4 fs-1 text-dark-emphasis  ">
                 Info Dottore
                 <i className="fa-solid fa-circle-info mx-3"></i>
               </h1>

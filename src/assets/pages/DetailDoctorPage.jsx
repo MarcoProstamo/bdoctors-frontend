@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDocContext } from "../contexts/DoctorsContext";
+import { useNavigate } from "react-router-dom";
 
 export default function DetailDoctorPage() {
   let { id: doctorId } = useParams();
+  const navigate = useNavigate();
 
   const [doctor, setDoctor] = useState(null);
   const [reviews, setReviews] = useState([]);
@@ -146,9 +148,15 @@ export default function DetailDoctorPage() {
     <div>
       <div className="page-wrapper" style={{ backgroundColor: "#CFFFF6" }}>
         <div className="container py-5">
+          <button
+            onClick={() => navigate(-1)}
+            className="btn btn-secondary mb-5"
+          >
+            ← Torna Indietro
+          </button>
           <div className="row mb-4 d-flex align-items-stretch">
             <div className="col-md-6 col-sm-12 mb-4">
-              <h1 className="mb-4 fs-1 text-dark-emphasis ">
+              <h1 className="mb-4 fs-1 text-dark-emphasis text-center ">
                 Info Dottore
                 <i className="fa-solid fa-circle-info mx-3"></i>
               </h1>

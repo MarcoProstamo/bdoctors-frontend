@@ -45,10 +45,12 @@ export default function AddDoctorPage() {
         <h1 className="text-center my-4 fw-bold">
           <strong>Sei un medico? </strong>
         </h1>
+        <div className="container">
+          <hr />
+        </div>
         <h4 className=" fw-semibold text-center my-4">
           Registrati gratuitamente e raggiungi nuovi pazienti!
         </h4>
-
         <div className="text-center">
           <a className="btn btn-primary my-3 fw-medium" href="#targetSection">
             Voglio registrarmi ora

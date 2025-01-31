@@ -45,7 +45,7 @@ export default function AddDoctorPage() {
         <h1 className="text-center my-4 fw-bold">
           <strong>Sei un medico? </strong>
         </h1>
-        <h4 className="text-center my-4">
+        <h4 className=" fw-semibold text-center my-4">
           Registrati gratuitamente e raggiungi nuovi pazienti!
         </h4>
 
@@ -57,7 +57,7 @@ export default function AddDoctorPage() {
       </div>
 
       <div className="container my-5">
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 text-center mt-3">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 text-center">
           <div className="col">
             <div className=" p-4 border bg-white rounded h-100 shadow-sm">
               {/* <p>

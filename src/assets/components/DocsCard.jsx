@@ -30,7 +30,7 @@ export default function DocsCard({ data }) {
             className="card-img-top"
             alt="..."
           />
-          <div className="card-body">
+          <div className="card-body d-flex flex-column justify-content-between">
             <h5 className="card-title fw-bold text-center text-color">
               {data.name} {data.surname}
             </h5>

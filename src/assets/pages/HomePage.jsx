@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import { useDocContext } from "../contexts/DoctorsContext";
 import { Link } from "react-router-dom";
 export default function HomePage() {
@@ -24,7 +24,7 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="container-hp">
+      <div className="container-hp w-100">
         <div className="container-imp-hp">
           <h1 className="title-card-principale">
             <strong>BDoctors</strong>
@@ -165,15 +165,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div class="container-homepage-info">
-        <div class="section-homepage reverse-homepage">
-          <div class="image-container-homepage">
+      <div className="container-homepage-info">
+        <div className="section-homepage reverse-homepage">
+          <div className="image-container-homepage">
             <img
               src="https://www.idoctors.it/images/frontend/commenti_diconodinoi.svg?v=2"
               alt="Recensioni pazienti"
             />
           </div>
-          <div class="content-homepage p-3">
+          <div className="content-homepage p-3">
             <h2 className="title-homepage">Dicono di noi</h2>
             <p className="paragrafo-homepage">
               Chi sceglie <strong>Bdoctors.it</strong> apprezza la qualità e

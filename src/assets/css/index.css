@@ -51,13 +51,14 @@ body {
   font-weight: 600;
 }
 
-.filter-btn-active{
+.filter-btn-active {
   color: var(--text-color);
   background-color: var(--secondary-color);
   font-weight: 600;
 }
 
-.filter-btn:hover, .filter-btn-active:hover {
+.filter-btn:hover,
+.filter-btn-active:hover {
   color: var(--text-color);
   background-color: var(--secondary-color);
   font-weight: 600;
@@ -90,6 +91,8 @@ body {
 
 .docs-card {
   box-shadow: 6px 6px 8px rgba(138, 198, 245, 0.28);
+  min-height: 450px;
+  max-height: 450px;
 }
 
 .docs-card:hover {

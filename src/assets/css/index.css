@@ -92,7 +92,6 @@ body {
 .docs-card {
   box-shadow: 6px 6px 8px rgba(138, 198, 245, 0.28);
   min-height: 450px;
-  max-height: 450px;
 }
 
 .docs-card:hover {
@@ -280,7 +279,7 @@ body {
 
 @media screen and (max-width: 633px) {
   .docs-card {
-    margin: 1rem 2rem;
+    margin: 0.5rem 1rem;
   }
 }
 

@@ -41,7 +41,7 @@ export default function AddDoctorPage() {
 
   return (
     <>
-      <div className="container my-5">
+      <div className="container-fluid py-4 bar-numbers">
         <h1 className="text-center my-4 fw-bold">
           <strong>Sei un medico? </strong>
         </h1>
@@ -54,7 +54,9 @@ export default function AddDoctorPage() {
             Voglio registrarmi ora
           </a>
         </div>
+      </div>
 
+      <div className="container my-5">
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 text-center mt-3">
           <div className="col">
             <div className=" p-4 border bg-white rounded h-100 shadow-sm">
@@ -137,7 +139,7 @@ export default function AddDoctorPage() {
         </div>
       </div>
 
-      <div className="container-fluid py-4 bar-numbers">
+      <div className="container-fluid py-4 bg-light">
         <div className="container">
           <div className="row text-center my-3">
             <div className="col-md-4">

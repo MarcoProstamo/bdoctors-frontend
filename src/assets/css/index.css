@@ -33,6 +33,10 @@ body {
   padding-bottom: 10px;
 }
 
+#searchInput {
+  background-color: var(--bg-color);
+}
+
 .doc-search-form {
   flex-basis: 80%;
 }

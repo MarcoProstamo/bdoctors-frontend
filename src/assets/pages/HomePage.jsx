@@ -113,7 +113,7 @@ export default function HomePage() {
         </b>
       </h1>
       <div className="container">
-        <div className="pt-5 px-3 row ">
+        <div className="pt-5 px-3 row">
           {icons &&
             icons.map((specialization, index) => {
               const isHovered = hoveredCard === index;
@@ -125,6 +125,7 @@ export default function HomePage() {
                 transform: isHovered ? "scale(1.05)" : "scale(1)",
                 transition: "transform 0.3s ease, background-color 0.3s ease",
                 cursor: "pointer",
+                fontsize: "2rem",
               };
 
               return (

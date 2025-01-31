@@ -73,7 +73,7 @@ body {
 
 .filter-section {
   overflow-y: scroll;
-  max-height: 300px;
+  max-height: 160px;
   scrollbar-width: none;
 }
 
@@ -234,9 +234,6 @@ body {
   transform: translateY(-5px);
 }
 
-.text-center {
-  font-size: 2rem;
-}
 .card-homepage img {
   width: 238px;
   margin-bottom: 15px;

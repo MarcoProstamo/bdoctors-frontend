@@ -38,7 +38,7 @@ body {
 }
 
 .doc-search-form {
-  flex-basis: 80%;
+  flex-basis: 100%;
 }
 
 .filter-form {

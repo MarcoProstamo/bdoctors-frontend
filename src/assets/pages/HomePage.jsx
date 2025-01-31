@@ -125,7 +125,7 @@ export default function HomePage() {
                 transform: isHovered ? "scale(1.05)" : "scale(1)",
                 transition: "transform 0.3s ease, background-color 0.3s ease",
                 cursor: "pointer",
-                fontsize: "2rem",
+                fontSize: "2rem",
               };
 
               return (

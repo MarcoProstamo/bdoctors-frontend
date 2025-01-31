@@ -142,7 +142,7 @@ export default function AddDoctorPage() {
       <div className="container-fluid py-4 bg-light">
         <div className="container">
           <div className="row text-center my-3">
-            <div className="col-md-4">
+            <div className="col-md-4 col-sm-6">
               <div className="my-1">
                 <p>
                   <i className="fa-solid fa-calendar-check fa-2x  filter-icons-tag"></i>{" "}
@@ -156,7 +156,7 @@ export default function AddDoctorPage() {
               </span>
               <p>Prenotazioni ogni mese</p>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-4 col-sm-6">
               <div className="my-1">
                 <p>
                   <i className="fa-solid fa-globe fa-2x filter-icons-tag"></i>
@@ -170,7 +170,7 @@ export default function AddDoctorPage() {
               </span>
               <p>Visitatori unici mensili</p>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-4 col-sm-12">
               <div className="my-1">
                 <p>
                   <i class="fa-solid fa-users fa-2x filter-icons-tag"></i>

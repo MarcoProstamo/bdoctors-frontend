@@ -99,8 +99,9 @@ body {
   transform: scale(1.05);
 }
 
-/* # HomePage */
+/* # HOMEPAGE */
 
+/* card iniziale di presentazione del sito   */
 .container-hp {
   background-size: cover;
   background-image: url(https://img.freepik.com/premium-vector/green-gold-glitter-alcohol-ink-marble-hand-painted-watercolor-background_515770-194.jpg?w=900);
@@ -116,20 +117,22 @@ body {
 
 .title-card-principale {
   margin-top: 8px;
-  font-size: 7rem;
+  font-size: 6rem;
   padding: 50px;
 }
 
 .sottotitolo-card-principale {
   margin-top: 12px;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .paragrafo-card-principale {
   margin-top: 12px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 30px;
 }
+
+/* carousel delle recensioni*/
 .carousel-inner-homepage img {
   margin-bottom: 15px;
   max-height: 561px;
@@ -137,10 +140,27 @@ body {
   object-fit: contain;
   background-color: #cffff6;
 }
-
-.title-spec {
-  font-size: 4rem;
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e") !important;
 }
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5% !important;
+  height: auto;
+  background-size: contain;
+}
+
+/* card delle specializzazioni */
+.title-spec {
+  font-size: 3rem;
+}
+
+/* Card informativa, cerca un dottore */
 .container-homepage-info {
   max-width: 1100px;
   margin: 21px auto;
@@ -166,10 +186,6 @@ body {
   border-radius: 10px;
 }
 
-.content-homepage {
-  flex: 1;
-}
-
 .title-homepage {
   font-size: 24px;
   font-weight: bold;
@@ -191,10 +207,12 @@ body {
   margin-bottom: 5px;
 }
 
+/* Card informativa, dicono di noi (tutto uguale solo con le immagini invertite) */
 .reverse-homepage {
   flex-direction: row-reverse;
 }
 
+/* Quattro piccole card informative */
 .cards-container-homepage {
   display: flex;
   justify-content: center;
@@ -217,6 +235,9 @@ body {
   transform: translateY(-5px);
 }
 
+.text-center {
+  font-size: 2rem;
+}
 .card-homepage img {
   width: 238px;
   margin-bottom: 15px;
@@ -231,21 +252,6 @@ body {
 .card-homepage p {
   font-size: 1rem;
   color: #555;
-}
-
-.carousel-control-prev-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e") !important;
-}
-
-.carousel-control-next-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-  width: 5% !important;
-  height: auto;
-  background-size: contain;
 }
 
 /* Responsività per schermi più piccoli */

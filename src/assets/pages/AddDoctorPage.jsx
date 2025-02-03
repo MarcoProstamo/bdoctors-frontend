@@ -43,7 +43,7 @@ export default function AddDoctorPage() {
     <>
       <div className="container-fluid py-4 bar-numbers ">
         <h1 className="text-center mt-4 mb-3 fw-bold ">
-          <strong>Sei un medico? </strong>
+          <strong>Sei un Dottore? </strong>
         </h1>
         <div className="container">
           <hr />

@@ -111,8 +111,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  width: 88rem;
-  height: 35rem;
 }
 .container-imp-hp {
   text-align: center;
@@ -135,6 +133,18 @@ body {
   padding: 30px;
 }
 
+@media (max-width: 727px) {
+  .sottotitolo-card-principale {
+    font-size: 2rem;
+  }
+  .paragrafo-card-principale {
+    padding: 10px;
+    font-size: 1rem;
+  }
+  .title-card-principale {
+    font-size: 4rem;
+  }
+}
 /* carousel delle recensioni*/
 .carousel-inner-homepage img {
   margin-bottom: 15px;

@@ -53,7 +53,7 @@ export default function AddDoctorPage() {
         </h4>
         <div className="text-center">
           <a className="btn btn-primary my-3 fw-medium" href="#targetSection">
-            Voglio registrarmi ora
+            Voglio registrarmi
           </a>
         </div>
       </div>

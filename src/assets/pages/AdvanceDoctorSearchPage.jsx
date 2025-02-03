@@ -13,7 +13,7 @@ export default function AdvanceDoctorSearchPage() {
     fetchDocs();
     fetchIcons();
   }, [location.pathname === "/doctors"]);
-  
+
   const [filter, setFilter] = useState({
     searchInput: "",
     specialization: specialization,
@@ -31,14 +31,6 @@ export default function AdvanceDoctorSearchPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-
-  const filterBtn = document.getElementById("filterBtn");
-  const filterSection = document.getElementById("filterSection");
-
-  filterBtn &&
-    filterBtn.addEventListener("click", () => {
-      filterSection.classList.toggle("d-none");
-    });
 
   const onClickSpecializationFilter = (e) => {
     setFilter({
@@ -83,6 +75,16 @@ export default function AdvanceDoctorSearchPage() {
 
   const icon = icons.find((el) => el.specialization === filter.specialization);
 
+  useEffect(() => {
+    const filterBtn = document.getElementById("filterBtn");
+    const filterSection = document.getElementById("filterSection");
+
+    filterBtn &&
+      filterBtn.addEventListener("click", () => {
+        filterSection.classList.toggle("d-none");
+      });
+  }, []);
+
   return (
     <>
       <section className="filter-form pt-5 pb-4">
@@ -122,7 +124,12 @@ export default function AdvanceDoctorSearchPage() {
               </form>
             </div>
 
-            <div className="my-4 d-none" id="filterSection">
+            <div
+              className={
+                `my-4 ` + !specialization && !specialization ? "d-none" : ""
+              }
+              id="filterSection"
+            >
               <div className="text-center fs-5 mb-3">
                 Filtra per Specializazzione
               </div>

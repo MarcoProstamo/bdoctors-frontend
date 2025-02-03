@@ -35,9 +35,10 @@ export default function AdvanceDoctorSearchPage() {
   const filterBtn = document.getElementById("filterBtn");
   const filterSection = document.getElementById("filterSection");
 
-  filterBtn.addEventListener("click", () => {
-    filterSection.classList.toggle("d-none");
-  });
+  filterBtn &&
+    filterBtn.addEventListener("click", () => {
+      filterSection.classList.toggle("d-none");
+    });
 
   const onClickSpecializationFilter = (e) => {
     setFilter({
@@ -115,7 +116,7 @@ export default function AdvanceDoctorSearchPage() {
                     id="filterBtn"
                     type="button"
                   >
-                    <i class="fa-solid fa-filter"></i>
+                    <i className="fa-solid fa-filter"></i>
                   </button>
                 </div>
               </form>

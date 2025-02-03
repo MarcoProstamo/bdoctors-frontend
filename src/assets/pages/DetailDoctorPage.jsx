@@ -14,7 +14,7 @@ export default function DetailDoctorPage() {
   const [newText, setNewText] = useState("");
   const [newName, setNewName] = useState("");
   const [newVote, setNewVote] = useState(0);
-  const [hoverVote, setHoverVote] = useState(0); // Stato per gestire l'hover delle stelle
+  const [hoverVote, setHoverVote] = useState(0);
   const [avg_vote, setAvg_vote] = useState(doctor?.avg_vote);
 
   const { icons } = useDocContext();
@@ -87,14 +87,14 @@ export default function DetailDoctorPage() {
       });
   };
 
-  // Funzione per resettare i campi del modulo di recensione.
+  // Funzione per il reset.
   const resetForm = (e) => {
     setNewText("");
     setNewName("");
     setNewVote(0);
   };
 
-  // Funzione per gestire il click sulle stelle per il voto.
+  // Funzione per gestire il click sulle stelle.
   const handleStarClick = (vote) => {
     setNewVote(vote);
   };
@@ -126,7 +126,9 @@ export default function DetailDoctorPage() {
               fontSize: "2rem",
               cursor: hoverEnabled ? "pointer" : "default",
               color:
-                i < (hoverEnabled ? hoverVote : vote) ? "#FFD700" : "#D3D3D3",
+                i < (hoverEnabled && hoverVote > 0 ? hoverVote : vote)
+                  ? "#FFD700"
+                  : "#D3D3D3",
             }}
           >
             {fullStar}

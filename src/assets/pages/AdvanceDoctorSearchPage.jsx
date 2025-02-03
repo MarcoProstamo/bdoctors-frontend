@@ -91,7 +91,7 @@ export default function AdvanceDoctorSearchPage() {
         <div className="container">
           <h1 className="fw-bold border-section">
             <i className="fa-solid fa-magnifying-glass me-3 filter-icons-tag"></i>
-            Ricerca Avanzata
+            <strong>Cerca il tuo Dottore</strong>
           </h1>
 
           <div className="mt-4">
@@ -172,7 +172,9 @@ export default function AdvanceDoctorSearchPage() {
           <div className="d-flex align-items-center gap-2 flex-wrap">
             <h2 className="fw-bold mb-0">
               <i className="fa-solid fa-user-doctor me-3 filter-icons-tag"></i>
-              Lista dei Medici
+              {filter.specialization
+                ? "Medici Specializzati: "
+                : "Tutti i nostri Medici"}
             </h2>
 
             {/* Tag specializazzione  */}

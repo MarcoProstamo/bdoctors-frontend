@@ -251,9 +251,9 @@ export default function HomePage() {
                             <Link
                               to={`/doctors/${doc.id}`}
                               state={doc.specialization}
-                              className="text-decoration-none card p-4 shadow-sm rounded-4 bg-light"
+                              className="text-decoration-none card p-4 shadow-sm rounded-4 bg-light mt-3"
                             >
-                              <div className="d-flex flex-column justify-content-center align-items-center mb-3">
+                              <div className="d-flex flex-column justify-content-center align-items-center mb-3 ">
                                 <img
                                   src={API_IMG + doc.image + ".png"}
                                   className="img-thumbnail me-3 rounded-circle shadow-lg"

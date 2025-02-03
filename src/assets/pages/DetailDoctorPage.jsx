@@ -14,6 +14,7 @@ export default function DetailDoctorPage() {
   const [newText, setNewText] = useState("");
   const [newName, setNewName] = useState("");
   const [newVote, setNewVote] = useState(0);
+  const [hoverVote, setHoverVote] = useState(0);
   const [avg_vote, setAvg_vote] = useState(doctor?.avg_vote);
 
   const { icons } = useDocContext();
@@ -98,6 +99,11 @@ export default function DetailDoctorPage() {
     setNewVote(vote);
   };
 
+  // Funzione per gestire l'hover sulle stelle.
+  const handleStarHover = (vote) => {
+    setHoverVote(vote);
+  };
+
   const renderStars = (vote) => {
     const maxStars = 5;
     const fullStar = "★";
@@ -108,12 +114,14 @@ export default function DetailDoctorPage() {
         {Array.from({ length: maxStars }, (_, i) => (
           <span
             key={i}
-            className={i < vote ? "filled" : "empty"}
+            className={i < (hoverVote || vote) ? "filled" : "empty"}
             onClick={() => handleStarClick(i + 1)}
+            onMouseEnter={() => handleStarHover(i + 1)}
+            onMouseLeave={() => handleStarHover(0)}
             style={{
               fontSize: "2rem",
               cursor: "pointer",
-              color: i < vote ? "#FFD700" : "#D3D3D3",
+              color: i < (hoverVote || vote) ? "#FFD700" : "#D3D3D3",
             }}
           >
             {fullStar}

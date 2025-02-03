@@ -130,7 +130,7 @@ export default function AdvanceDoctorSearchPage() {
               }
               id="filterSection"
             >
-              <div className="text-center fs-5 mb-3 mt-2">
+              <div className="text-center fs-5 mb-2 mt-3">
                 Filtra per Specializazzione
               </div>
 

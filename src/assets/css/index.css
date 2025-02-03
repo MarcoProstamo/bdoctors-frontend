@@ -218,6 +218,7 @@ body {
   font-size: 16px;
   color: #555;
   margin-bottom: 5px;
+  list-style-type: none;
 }
 
 /* Card informativa, dicono di noi (tutto uguale solo con le immagini invertite) */
@@ -267,19 +268,27 @@ body {
 /* Responsività per schermi più piccoli */
 @media (max-width: 768px) {
   .section-homepage {
-    flex-direction: column;
     text-align: center;
   }
 
-  .reverse-homepage {
-    flex-direction: column;
-  }
-
   .image-container-homepage img {
-    max-width: 100%;
+    max-width: 50%;
   }
 }
 
+@media (max-width: 480px) {
+  .section-homepage {
+    gap: 20px;
+    margin-left: 0;
+  }
+  .card-homepage h3 {
+    font-size: 1.2rem;
+  }
+
+  .card-homepage p {
+    font-size: 0.8rem;
+  }
+}
 /* # Navbar */
 
 .avatar {

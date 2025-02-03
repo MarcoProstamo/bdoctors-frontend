@@ -44,6 +44,87 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* Card informativa, cerca un dottore */}
+      <div className="container-homepage-info px-3 py-4 mt-5">
+        <div className="section-homepage">
+          <div className="image-container-homepage">
+            <img
+              style={{ width: "234px" }}
+              src="https://www.idoctors.it/images/frontend/medico-vertical.svg"
+              alt="Dottore online"
+            />
+          </div>
+          <div className="content-homepage-info pt-3">
+            <h2 className="title-homepage">
+              Cerca un dottore online tra centinaia di specialisti
+            </h2>
+            <p className="paragrafo-homepage">
+              Su <strong>Bdoctors.it</strong> trovi i migliori professionisti in
+              ogni ambito medico. Se hai bisogno di una{" "}
+              <strong>Televisita</strong> o desideri un{" "}
+              <strong>secondo parere</strong>, puoi contare sui nostri medici
+              per consulenze rapide e sicure.
+            </p>
+            <ul className="lista-homepage">
+              <li className="lista-punti-homepage">
+                Specialisti altamente selezionati
+              </li>
+              <li className="lista-punti-homepage">
+                Consulenze online rapide e sicure
+              </li>
+              <li className="lista-punti-homepage">
+                Prenotazioni semplici e veloci
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Card delle specializzazioni */}
+      <h1 className="text-center pt-5 px-3">
+        <b className="title-spec">
+          <strong>Cerca per specializzazione</strong>
+        </b>
+      </h1>
+      <div className="container">
+        <div className="pt-5 px-3 row">
+          {icons &&
+            icons.map((specialization, index) => {
+              const isHovered = hoveredCard === index;
+
+              const dynamicStyle = {
+                backgroundColor: isHovered
+                  ? "rgba(0, 0, 0, 0.1)"
+                  : "transparent",
+                transform: isHovered ? "scale(1.05)" : "scale(1)",
+                transition: "transform 0.3s ease, background-color 0.3s ease",
+                cursor: "pointer",
+                fontSize: "2rem",
+              };
+
+              return (
+                <Link
+                  to={`/doctors`}
+                  state={{ specialization: specialization.specialization }}
+                  key={index}
+                  className="text-dark text-decoration-none text-center py-5 px-3 col-md-3 col-sm-6 col-6 border"
+                  style={dynamicStyle}
+                  onMouseEnter={() => setHoveredCard(index)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                >
+                  <i
+                    className={`${`fas ${specialization.icon_tag}`} fa-2xl`}
+                    style={{ color: "#8ac6f5" }}
+                  ></i>
+                  <h5 className="py-3 px-3">
+                    <strong>{specialization.specialization}</strong>
+                  </h5>
+                </Link>
+              );
+            })}
+        </div>
+      </div>
+
       {/* Quattro piccole card informative */}
       <section className="how-it-works px-5 py-4 mt-3">
         <h2 className="text-center ">
@@ -106,80 +187,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Card delle specializzazioni */}
-      <h1 className="text-center pt-5 px-3">
-        <b className="title-spec">
-          <strong>Cerca per specializzazione</strong>
-        </b>
-      </h1>
-      <div className="container">
-        <div className="pt-5 px-3 row">
-          {icons &&
-            icons.map((specialization, index) => {
-              const isHovered = hoveredCard === index;
-
-              const dynamicStyle = {
-                backgroundColor: isHovered
-                  ? "rgba(0, 0, 0, 0.1)"
-                  : "transparent",
-                transform: isHovered ? "scale(1.05)" : "scale(1)",
-                transition: "transform 0.3s ease, background-color 0.3s ease",
-                cursor: "pointer",
-                fontSize: "2rem",
-              };
-
-              return (
-                <Link
-                  to={`/doctors`}
-                  state={{ specialization: specialization.specialization }}
-                  key={index}
-                  className="text-dark text-decoration-none text-center py-5 px-3 col-md-3 col-sm-6 col-6 border"
-                  style={dynamicStyle}
-                  onMouseEnter={() => setHoveredCard(index)}
-                  onMouseLeave={() => setHoveredCard(null)}
-                >
-                  <i
-                    className={`${`fas ${specialization.icon_tag}`} fa-2xl`}
-                    style={{ color: "#8ac6f5" }}
-                  ></i>
-                  <h5 className="py-3 px-3">
-                    <strong>{specialization.specialization}</strong>
-                  </h5>
-                </Link>
-              );
-            })}
-        </div>
-      </div>
-
-      {/* Card informativa, cerca un dottore */}
-      <div className="container-homepage-info">
-        <div className="section-homepage">
+      {/* Card informativa, dicono di noi */}
+      <div className="container-homepage-info px-3 py-4">
+        <div className="section-homepage reverse-homepage">
           <div className="image-container-homepage">
             <img
-              src="https://www.idoctors.it/images/frontend/medico-vertical.svg"
-              alt="Dottore online"
+              style={{ width: "300px" }}
+              src="https://www.idoctors.it/images/frontend/commenti_diconodinoi.svg?v=2"
+              alt="Recensioni pazienti"
             />
           </div>
-          <div className="content-homepage-info pt-3">
-            <h2 className="title-homepage">
-              Cerca un dottore online tra centinaia di specialisti
-            </h2>
+          <div className="content-homepage p-3">
+            <h2 className="title-homepage">Dicono di noi</h2>
             <p className="paragrafo-homepage">
-              Su <strong>Bdoctors.it</strong> trovi i migliori professionisti in
-              ogni ambito medico. Se hai bisogno di una{" "}
-              <strong>Televisita</strong> o desideri un{" "}
-              <strong>secondo parere</strong>, puoi contare sui nostri medici
-              per consulenze rapide e sicure.
+              Chi sceglie <strong>Bdoctors.it</strong> apprezza la qualità e
+              l’affidabilità del nostro servizio. Le testimonianze dei nostri
+              utenti parlano chiaro: medici competenti, prenotazioni rapide e
+              assistenza eccellente.
             </p>
             <ul className="lista-homepage">
               <li className="lista-punti-homepage">
-                Specialisti altamente selezionati
+                Più di <strong>2 milioni</strong> di utenti soddisfatti
               </li>
               <li className="lista-punti-homepage">
-                Consulenze online rapide e sicure
+                Feedback positivi sulla nostra piattaforma
               </li>
               <li className="lista-punti-homepage">
-                Prenotazioni semplici e veloci
+                Servizio attento e professionale
               </li>
             </ul>
           </div>
@@ -274,38 +308,6 @@ export default function HomePage() {
               ></span>
               <span className="visually-hidden">Next</span>
             </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Card informativa, dicono di noi */}
-      <div className="container-homepage-info">
-        <div className="section-homepage reverse-homepage">
-          <div className="image-container-homepage">
-            <img
-              src="https://www.idoctors.it/images/frontend/commenti_diconodinoi.svg?v=2"
-              alt="Recensioni pazienti"
-            />
-          </div>
-          <div className="content-homepage p-3">
-            <h2 className="title-homepage">Dicono di noi</h2>
-            <p className="paragrafo-homepage">
-              Chi sceglie <strong>Bdoctors.it</strong> apprezza la qualità e
-              l’affidabilità del nostro servizio. Le testimonianze dei nostri
-              utenti parlano chiaro: medici competenti, prenotazioni rapide e
-              assistenza eccellente.
-            </p>
-            <ul className="lista-homepage">
-              <li className="lista-punti-homepage">
-                Più di <strong>2 milioni</strong> di utenti soddisfatti
-              </li>
-              <li className="lista-punti-homepage">
-                Feedback positivi sulla nostra piattaforma
-              </li>
-              <li className="lista-punti-homepage">
-                Servizio attento e professionale
-              </li>
-            </ul>
           </div>
         </div>
       </div>

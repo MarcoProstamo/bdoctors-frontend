@@ -163,7 +163,10 @@ export default function DetailDoctorPage() {
     <div>
       <div className="page-wrapper" style={{ backgroundColor: "#CFFFF6" }}>
         <div className="container py-5">
-          <button onClick={() => navigate(-1)} className="btn btn-primary mb-5">
+          <button
+            onClick={() => navigate(-1)}
+            className="btn btn-secondary mb-5"
+          >
             ← Torna Indietro
           </button>
           <div className="row mb-4 d-flex align-items-stretch">

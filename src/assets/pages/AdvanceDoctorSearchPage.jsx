@@ -13,7 +13,7 @@ export default function AdvanceDoctorSearchPage() {
     fetchDocs();
     fetchIcons();
   }, [location.pathname === "/doctors"]);
-
+  
   const [filter, setFilter] = useState({
     searchInput: "",
     specialization: specialization,
@@ -31,6 +31,14 @@ export default function AdvanceDoctorSearchPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
+  const filterBtn = document.getElementById("filterBtn");
+  const filterSection = document.getElementById("filterSection");
+
+  filterBtn &&
+    filterBtn.addEventListener("click", () => {
+      filterSection.classList.toggle("d-none");
+    });
 
   const onClickSpecializationFilter = (e) => {
     setFilter({
@@ -94,18 +102,27 @@ export default function AdvanceDoctorSearchPage() {
                 <label htmlFor="searchInput" className="form-label fs-5">
                   Filtra per Nome o Cognome
                 </label>
-                <input
-                  placeholder="search..."
-                  type="text"
-                  id="searchInput"
-                  className="form-control"
-                  value={filter.searchInput}
-                  onChange={handleInputChange}
-                />
+                <div className="input-group">
+                  <input
+                    placeholder="search..."
+                    type="text"
+                    id="searchInput"
+                    className="form-control"
+                    value={filter.searchInput}
+                    onChange={handleInputChange}
+                  />
+                  <button
+                    className="btn fs-6 filter-btn-active"
+                    id="filterBtn"
+                    type="button"
+                  >
+                    <i className="fa-solid fa-filter"></i>
+                  </button>
+                </div>
               </form>
             </div>
 
-            <div className="my-4">
+            <div className="my-4 d-none" id="filterSection">
               <div className="text-center fs-5 mb-3">
                 Filtra per Specializazzione
               </div>

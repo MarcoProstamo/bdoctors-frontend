@@ -24,10 +24,6 @@ export default function AdvanceDoctorSearchPage() {
     setFilter({ ...filter, searchInput: e.target.value });
   };
 
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -76,6 +72,8 @@ export default function AdvanceDoctorSearchPage() {
   const icon = icons.find((el) => el.specialization === filter.specialization);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     const filterBtn = document.getElementById("filterBtn");
     const filterSection = document.getElementById("filterSection");
 

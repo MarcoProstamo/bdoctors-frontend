@@ -14,7 +14,7 @@ export default function DetailDoctorPage() {
   const [newText, setNewText] = useState("");
   const [newName, setNewName] = useState("");
   const [newVote, setNewVote] = useState(0);
-  const [hoverVote, setHoverVote] = useState(0);
+  const [hoverVote, setHoverVote] = useState(0); // Stato per gestire l'hover delle stelle
   const [avg_vote, setAvg_vote] = useState(doctor?.avg_vote);
 
   const { icons } = useDocContext();
@@ -104,7 +104,7 @@ export default function DetailDoctorPage() {
     setHoverVote(vote);
   };
 
-  const renderStars = (vote) => {
+  const renderStars = (vote, hoverEnabled = false) => {
     const maxStars = 5;
     const fullStar = "★";
     const emptyStar = "☆";
@@ -114,14 +114,19 @@ export default function DetailDoctorPage() {
         {Array.from({ length: maxStars }, (_, i) => (
           <span
             key={i}
-            className={i < (hoverVote || vote) ? "filled" : "empty"}
-            onClick={() => handleStarClick(i + 1)}
-            onMouseEnter={() => handleStarHover(i + 1)}
-            onMouseLeave={() => handleStarHover(0)}
+            className={
+              i < (hoverEnabled ? hoverVote : vote) ? "filled" : "empty"
+            }
+            onClick={hoverEnabled ? () => handleStarClick(i + 1) : undefined}
+            onMouseEnter={
+              hoverEnabled ? () => handleStarHover(i + 1) : undefined
+            }
+            onMouseLeave={hoverEnabled ? () => handleStarHover(0) : undefined}
             style={{
               fontSize: "2rem",
-              cursor: "pointer",
-              color: i < (hoverVote || vote) ? "#FFD700" : "#D3D3D3",
+              cursor: hoverEnabled ? "pointer" : "default",
+              color:
+                i < (hoverEnabled ? hoverVote : vote) ? "#FFD700" : "#D3D3D3",
             }}
           >
             {fullStar}
@@ -283,7 +288,7 @@ export default function DetailDoctorPage() {
                 <div className="mb-3 text-center">
                   <label className="form-label m-0">Voto</label>
                   <div className="d-flex justify-content-center">
-                    {renderStars(newVote)}
+                    {renderStars(newVote, true)}{" "}
                   </div>
                 </div>
 

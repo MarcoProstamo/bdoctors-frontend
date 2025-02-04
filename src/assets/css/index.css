@@ -120,25 +120,40 @@ body {
   margin-top: 8px;
   font-size: 6rem;
   padding: 50px;
+  text-align: center;
 }
 
 .sottotitolo-card-principale {
   margin-top: 12px;
   font-size: 2.5rem;
+  text-align: center;
 }
 
 .paragrafo-card-principale {
   margin-top: 12px;
   font-size: 1.5rem;
-  padding: 30px;
+  padding: 33px 352px;
+  text-align: center;
 }
-
-@media (max-width: 727px) {
+@media (max-width: 1220px) {
   .sottotitolo-card-principale {
     font-size: 2rem;
   }
   .paragrafo-card-principale {
-    padding: 10px;
+    padding: 33px 196px;
+    font-size: 1rem;
+  }
+  .title-card-principale {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sottotitolo-card-principale {
+    font-size: 2rem;
+  }
+  .paragrafo-card-principale {
+    padding: 33px 84px;
     font-size: 1rem;
   }
   .title-card-principale {
@@ -212,7 +227,7 @@ body {
 }
 
 .lista-homepage {
-  padding-left: 20px;
+  padding-left: 2px;
 }
 
 .lista-punti-homepage {

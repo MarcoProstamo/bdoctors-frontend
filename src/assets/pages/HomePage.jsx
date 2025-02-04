@@ -80,51 +80,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Card delle specializzazioni */}
-      <h1 className="text-center pt-5 px-3">
-        <b className="title-spec">
-          <strong>Cerca per specializzazione</strong>
-        </b>
-      </h1>
-      <div className="container">
-        <div className="pt-5 px-3 row">
-          {icons &&
-            icons.map((specialization, index) => {
-              const isHovered = hoveredCard === index;
-
-              const dynamicStyle = {
-                backgroundColor: isHovered
-                  ? "rgba(0, 0, 0, 0.1)"
-                  : "transparent",
-                transform: isHovered ? "scale(1.05)" : "scale(1)",
-                transition: "transform 0.3s ease, background-color 0.3s ease",
-                cursor: "pointer",
-                fontSize: "2rem",
-              };
-
-              return (
-                <Link
-                  to={`/doctors`}
-                  state={{ specialization: specialization.specialization }}
-                  key={index}
-                  className="text-dark text-decoration-none text-center py-5 px-3 col-md-3 col-sm-6 col-6 border"
-                  style={dynamicStyle}
-                  onMouseEnter={() => setHoveredCard(index)}
-                  onMouseLeave={() => setHoveredCard(null)}
-                >
-                  <i
-                    className={`${`fas ${specialization.icon_tag}`} fa-2xl`}
-                    style={{ color: "#8ac6f5" }}
-                  ></i>
-                  <h5 className="py-3 px-3">
-                    <strong>{specialization.specialization}</strong>
-                  </h5>
-                </Link>
-              );
-            })}
-        </div>
-      </div>
-
       {/* Quattro piccole card informative */}
       <section className="how-it-works px-5 py-4 mt-3">
         <h2 className="text-center ">
@@ -186,6 +141,51 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Card delle specializzazioni */}
+      <h1 className="text-center pt-5 px-3">
+        <b className="title-spec">
+          <strong>Cerca per specializzazione</strong>
+        </b>
+      </h1>
+      <div className="container">
+        <div className="pt-5 px-3 row">
+          {icons &&
+            icons.map((specialization, index) => {
+              const isHovered = hoveredCard === index;
+
+              const dynamicStyle = {
+                backgroundColor: isHovered
+                  ? "rgba(0, 0, 0, 0.1)"
+                  : "transparent",
+                transform: isHovered ? "scale(1.05)" : "scale(1)",
+                transition: "transform 0.3s ease, background-color 0.3s ease",
+                cursor: "pointer",
+                fontSize: "2rem",
+              };
+
+              return (
+                <Link
+                  to={`/doctors`}
+                  state={{ specialization: specialization.specialization }}
+                  key={index}
+                  className="text-dark text-decoration-none text-center py-5 px-3 col-md-3 col-sm-6 col-6 border"
+                  style={dynamicStyle}
+                  onMouseEnter={() => setHoveredCard(index)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                >
+                  <i
+                    className={`${`fas ${specialization.icon_tag}`} fa-2xl`}
+                    style={{ color: "#8ac6f5" }}
+                  ></i>
+                  <h5 className="py-3 px-3">
+                    <strong>{specialization.specialization}</strong>
+                  </h5>
+                </Link>
+              );
+            })}
+        </div>
+      </div>
 
       {/* Card informativa, dicono di noi */}
       <div className="container-homepage-info px-3 py-4">
